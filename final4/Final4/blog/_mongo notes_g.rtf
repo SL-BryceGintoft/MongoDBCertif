@@ -1,0 +1,3615 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 LucidaGrande;
+\f3\fnil\fcharset0 HelveticaNeue;\f4\fmodern\fcharset0 Courier-Bold;\f5\fmodern\fcharset0 Courier;
+\f6\fswiss\fcharset0 Helvetica-Light;\f7\fswiss\fcharset0 Helvetica;\f8\froman\fcharset0 TimesNewRomanPSMT;
+\f9\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red234\green234\blue234;\red38\green38\blue38;\red245\green245\blue245;
+\red241\green245\blue250;\red37\green36\blue36;\red56\green55\blue55;\red18\green83\blue181;\red26\green26\blue26;
+\red242\green244\blue245;\red242\green242\blue242;\red37\green36\blue35;\red246\green246\blue246;\red28\green28\blue28;
+\red8\green0\blue115;\red166\green23\blue0;\red128\green18\blue178;\red0\green0\blue255;\red135\green135\blue135;
+\red104\green0\blue0;\red179\green18\blue62;\red95\green152\blue19;\red83\green83\blue83;\red22\green96\blue5;
+\red36\green112\blue57;\red51\green140\blue16;\red241\green241\blue241;\red79\green0\blue87;\red33\green140\blue0;
+\red41\green74\blue201;\red185\green0\blue0;\red52\green90\blue147;\red35\green110\blue37;\red144\green9\blue77;
+\red208\green61\blue0;\red26\green113\blue168;}
+\margl1440\margr1440\vieww11520\viewh11940\viewkind0
+\deftab720
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\f0\fs28 \cf0 VIM:\
+You simply type 
+\f1 \cb2 vim
+\f0 \cb1  into the terminal to open it and start a new file.\
+You can pass a filename as an option and it will open that file, e.g. 
+\f1 \cb2 vim main.c
+\f0 \cb1 .\
+Press 
+\fs22 \cf3 \cb4 \shad\shadx0\shady-20\shadr0\shado255 \shadc0 a
+\fs28 \cf0 \cb1 \shad0  to start 
+\f1 \cb2 INSERT
+\f0 \cb1  mode (in 
+\i append after cursor mode
+\i0 , which is what you are probably used to).\
+To leave 
+\f1 \cb2 INSERT
+\f0 \cb1  mode, press 
+\fs22 \cf3 \cb4 \shad\shadx0\shady-20\shadr0\shado255 \shadc0 Esc
+\fs28 \cf0 \cb1 \shad0 .\
+To save your file, use 
+\f1 \cb2 :w
+\f0 \cb1 . To save and exit, use 
+\f1 \cb2 :x
+\f0 \cb1 .\
+You can also type 
+\f1 \cb2 man vim
+\f0 \cb1  for some help inside the terminal. Alternatively, run 
+\f1 \cb2 vimtutor
+\f0 \cb1  which is a good hands-on starting point.\
+{\field{\*\fldinst{HYPERLINK "http://www.angelwatt.com/coding/notes/vim-commands.html"}}{\fldrslt http://www.angelwatt.com/coding/notes/vim-commands.html}}\
+------------------------------------------\
+Make Mongo DB data directory:\
+check if on root / provide password:\
+sudo bash\
+enter pw\
+mkdir -p /data/db\
+------\
+------------------------------------------\
+To run mongo shell:\
+mongo\
+------------------------------------------\
+******* use sudo bash for admin credentials on root\
+What is "sudo bash"?\
+it starts a bash shell as a root level user. You need it because typically normal users can't access 
+\f1 \cb2 /home/
+\f0 \cb1 \
+the danger of what you are doing is you are in a root shell -- you can mess up your machine morez easilyz\
+{\field{\*\fldinst{HYPERLINK "http://www.angelwatt.com/coding/notes/vim-commands.html"}}{\fldrslt http://www.angelwatt.com/coding/notes/vim-commands.html}}\
+------------------------------------------\
+------\
+Webserver:\
+Default Location: 
+\f2\fs24 \cf3 \cb5 /Library/WebServer/Documents\
+-----------------------------------------------\
+npm install - installs all dependencies from package.json file\
+-----------------------------------------------\
+run mongo shell before trying to run mongo in node (trouble connecting)\
+cd ~/mongodb/mongodb-osx-x86_64-2.6.5/bin\
+(~ equals home_account)\
+-----------------------------------------------\
+./mongod - runs the mongo shell\
+mongod --dbpath=/data/db\
+~/mongodb/mongodb-osx-x86_64-2.6.5/bin/mongod\
+~/mongodb/mongodb-osx-x86_64-2.6.5/bin/mongo\
+-----------------------------------------------\
+Mongo Import:\
+\pard\pardeftab720\sl340\ql\qnatural
+
+\f1\fs28 \cf0 \cb2 mongoimport --db dbName --collection collectionName <fileName.json
+\f2\fs24 \cf3 \cb5 \
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+\cf3 -----------------------------------------------\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f3\b\fs36 \cf6 \cb1 Use 
+\f4 \cf0 shutdownServer()
+\f3 \cf6 \
+\pard\pardeftab720\sl480\sa480\ql\qnatural
+
+\b0\fs32 \cf7 Shut down the {\field{\*\fldinst{HYPERLINK "http://docs.mongodb.org/manual/reference/program/mongod/#bin.mongod"}}{\fldrslt 
+\f5 \cf8 mongod}} from the {\field{\*\fldinst{HYPERLINK "http://docs.mongodb.org/manual/reference/program/mongo/#bin.mongo"}}{\fldrslt 
+\f5 \cf8 mongo}} shell using the {\field{\*\fldinst{HYPERLINK "http://docs.mongodb.org/manual/reference/method/db.shutdownServer/#db.shutdownServer"}}{\fldrslt 
+\f5 \cf8 db.shutdownServer()}} method as follows:\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f5\fs28 \cf9 \cb10 use admin\
+db.shutdownServer()\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\f1 \cf0 \cb2 \
+
+\f2\fs24 \cf3 \cb5 \
+0.5 times number of files.\
+> use course\
+switched to db course\
+> db.hello_mongo_express.find()\
+> db.hello_hello_mongo_express.find()\
+> db.hello_mongo_express.insert(\{'name':'MongoDB'\})\
+WriteResult(\{ "nInserted" : 1 \})\
+> exit\
+---------------------------------------\
+\
+Ch 1 :\
+~/Desktop/mongo-db_course/week_1/hello_world_mongodb_style/hello_world_mongodb/hello_world_mongodb\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\f0\fs28 \cf3 \cb1 ~/Desktop/mongo-db_course/week_1/hello_world_on_node_js/hello_world_http/hello_world_http\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ql\qnatural\pardirnatural
+\cf3 ~/Desktop/mongo-db_course/week_1/hello_world_using_express/hello_world_express/hello_world_express\
+\cf0 \
+~/Desktop/mongo-db_course/week_1/hello_world_using_express_swig_and_mongodb/hello_world_combined/hello_world_combined\
+\
+~/Desktop/mongo-db_course/week_1/homework_1_1/hw1-1/hw1-1\
+\
+~/Desktop/mongo-db_course/week_1/homework_1_3/hw1-3/hw1-3\
+\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\fs24 \cf3 \cb5 ---------------------------------------\
+**** REview extra lectures for Express\
+\
+BSON - Binary JSON\
+findOne: gets back one document at random\
+findOne(param obj) : finds a document that contains this item (where clause)\
+findOne(param obj, obj params to return) : finds a document that contains this item (+ where parameter - where clause) - can add \{"_id":false\} to eliminate the id from returning\
+\
+find() - returns all documents that fit query. no params returns all documents \
+-returns batch size of about 20, can paginate using "it"\
+-"pretty" returns pretty printing of results\
+$gt - greater than\
+$lt - Less than\
+$lte - Less than or equal\
+$exists - it is there\
+$type - returns those of type \{name:\{$type:2)\}\
+$regex - \{name:\{$regex:"a"\}\}\
+$or - Union- returns docs that match any criteria in array\
+$all - finds any documents that have one of the array elements in the param array\
+$in - \
+dot notation - allows you to search inside fields\
+avoid printing out results of query on cursor, use null;\
+cruor commands skip(), limit(), seach() execute on database server not in client memory\
+count() - substitute for find to get number of records\
+update() - updates documents - wholesale replacement\
+- db.people.update\{ \{name: "Alice"\} )\
+$set - sets a specific field, adds if doesn't exist - \{$set:[age:30]\}\
+$unset - removes a field \{$unset:[age:30]\}\
+-db.interests.update(\{_id: "jimmy"\},\{$unset:\{interests:\cb11 \kerning1\expnd1\expndtw8
+1\cb5 \kerning1\expnd0\expndtw0 \}\})\
+$inc - increments a field, will be one if doesn't exist\{$inc:\{age:1\}\}\
+$push\
+$pull\
+$pop\
+$pushAll\
+$pullAll\
+$addToSet - idempotent - redoing it has no effect\
+$upsert:true - updates a record, inserts if doesn't exist\
+$multi:true - updates the whole collection where there is a match. (default only updates the first it finds)\
+-write operations sometimes pause to let other operations proceed ("yield")\
+db.collection.update\{ \{\} ) - empty bracket means it updates every document\
+------\
+-\cf12 \cb1 \kerning1\expnd1\expndtw8
+Give every document with a 
+\i \kerning1\expnd1\expndtw8
+score
+\i0 \kerning1\expnd1\expndtw8
+ less than 70 an extra 20 points.\cf3 \cb5 \kerning1\expnd0\expndtw0 \
+db.scores.update(\{'score':\{$lt:70\}\} , \{$inc:\{score:20\}\},\{multi:true\})R\
+\
+Remove documents: (not atomic- other operations might see the collection while the removal is processing)\
+db.collection.remove([]) - removes all documents - one by one operation\
+db.collection.drop() - drops the entire collection (faster)(removes indexes meta-data)\
+**\
+delete every document with a score of less than 60\
+db.scores.remove(\{'score':\{$lt:60\}\} ,\{multi:true\})\
+------\
+In node, when you create a cursor, it doesn't actually query the database\
+.each will return one (easier to stream rather than wait for all the documents\
+.toArray will return a batch - not all the documents \
+------ Query causes only 'grade' field to be returned\
+\pard\pardeftab720\sl480\ql\qnatural
+\cf12 \cb1 \kerning1\expnd1\expndtw8
+db.collection('grades')find(\{'grade':1,"_id:0\}, callback);\
+------------------\
+-------- Query returns all docs with a grade between 69 and 80\
+var query = \{"grade":\{"$gt":69, "$lt":80\}\};\
+------------------
+\b \kerning1\expnd1\expndtw8
+\
+
+\b0 \kerning1\expnd1\expndtw8
+match a document with 'Microsoft' anywhere in the 'title' field? \
+\{ 'title' : \{ '$regex' : 'Microsoft' \} \}\
+\pard\pardeftab720\sl480\ql\qnatural
+\cf3 \cb5 \kerning1\expnd0\expndtw0 --------------------\
+\pard\pardeftab720\sl480\ql\qnatural
+\cf12 \cb1 \kerning1\expnd1\expndtw8
+selects for a document with a 'name' of 'Steve' in the 'students' array.\
+\{"students.name":"Steve"\}\cf3 \cb5 \kerning1\expnd0\expndtw0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ql\qnatural\pardirnatural
+\cf0 \cb1 --------------------\
+Skip, Limit, Sort order (driver reorders them automatically):\
+1. Sort\
+2. Skip\
+3. Limit\
+\pard\pardeftab720\sl340\ql\qnatural
+
+\f1\fs28 \cf0 \cb2 db.foo.find().sort(\{a: 1\}).limit(1) \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \
+-------------------\
+Manipulating data in node driver:\
+insert - (not idempotent, if you resubmit with duplicate id field)\
+update - \
+- replacement - not efficient - findOne\
+- in place - updates the field only - uses an operator to $set the field to change\
+- multi - like in place, uses ['multi': true\}\
+- upset - update using $set on query results - when document associated with query doesn't exist, gets inserted if no mathc\
+- save - (wrapper around upset) - different syntax, upset to insert or replace document\
+find and modify - atomically finds and updates the document\
+\pard\pardeftab720\sl480\ql\qnatural
+\cf12 \kerning1\expnd1\expndtw8
+will add the "dropped" field to the homework document with the lowest grade and call the given callback\
+-db.collection('homeworks').findAndModify(\{\}, [[ 'grade' , 1 ]], \{ '$set' : \{ 'dropped' : true \} \}, \{ 'new' : true \}, callback);\cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ql\qnatural\pardirnatural
+\cf0 remove - \cf3 \cb5 \
+\pard\pardeftab720\sl480\ql\qnatural
+\cf3 ---------------------------------\
+Homework wk2:\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\fs28 \cf3 \cb1 ~/Desktop/mongo-db_course/week_2/homework_2_1\
+To drop database:\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+mongo weather --eval "printjson(db.dropDatabase())"\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\f0\fs28 \cf3 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+mongoimport --type csv --headerline weather_data.csv -d weather -c data\
+\
+\
+mongo\
+use weather\
+db.data.count()\
+2963\
+\
+\pard\pardeftab720\sl340\ql\qnatural
+
+\fs28 \cf3 \cb2 \kerning1\expnd1\expndtw8
+db.data.find(\{\})\
+\pard\pardeftab720\sl340\ql\qnatural
+\cf0 \kerning1\expnd0\expndtw0 \
+find those with wind direction between 180/360\
+sort by temperture\
+limit 1
+\f0\fs24 \cf3 \cb5 \
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+db.
+\f0\fs24 \cf3 \cb5 \kerning1\expnd0\expndtw0 data
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+.find(\{ '
+\f0\fs24 \cf3 \cb5 \kerning1\expnd0\expndtw0 Wind Direction'
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+ : \{ $gte : 180, $lte: 360 \} \} , \{'State':1,'Temperature':1,'Wind Direction':1, '_id':0\})
+\f1\fs28 \cf0 \cb2 \kerning1\expnd0\expndtw0 .sort(\{'
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Temperature'
+\f1\fs28 \cf0 \cb2 \kerning1\expnd0\expndtw0 : 1\}).limit(1) \
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f0\fs24 \cf3 \cb5 ---------------------------------\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\fs28 \cf3 \cb1 ~/Desktop/mongo-db_course/week_2/homework_2_2_manual_validation_version/hw2-2
+\fs24 \cb5 \
+
+\fs28 \cb1 ~/Desktop/mongo-db_course/week_2/node_js_driver_skip_limit_and_sort/skip_limit_sort/skip_limit_sort\
+~/Desktop/mongo-db_course/week_2/homework_2_2_writecode\
+1. Sort by state\
+2. Sort by Temp decreasing\
+3. First one for each state has highest temp\
+------------------------------\
+homework 2_3:\
+~/Desktop/mongo-db_course/week_2/homework_2_3_manual_validation_version/hw2-3/hw2-3/blog\
+~/Desktop/mongo-db_course/week_2/homework_2_3_manual_validation_version/hw2-3/hw2-3/validate
+\f1\fs22 \cb13 \kerning1\expnd1\expndtw8
+\
+
+\f0\fs28 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\fs24 \cf3 \cb5 u: test/test2\
+p: test\
+\pard\pardeftab720\sl480\ql\qnatural
+\cf3 ---------------------------------\
+Week 3:\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 \cb1 Schema design:\
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Rich Documents\
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Pre Join /Embed Data\
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 No Joins, embedded joins\
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 No Constraints (foreign keys, etc)\
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Atomic operations\
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 No Declared Schema\
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 \
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \'a0\
+\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Q1:\
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf12 \kerning1\expnd1\expndtw8
+What's the single most important factor in designing your application schema within MongoDB?\cf3 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf12 \kerning1\expnd1\expndtw8
+Making the design extensible.\cf3 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 \
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \'a0\
+\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 3
+\fs24 \super rd
+\fs30 \nosupersub  Normal Form:\
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\
+\pard\pardeftab720\li1020\fi-480\sl440\sa20\ql\qnatural
+
+\f0\fs28 \cf14 1.
+\f8\fs18 \'a0\'a0 
+\f0\fs28 the entity is in\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Second_normal_form"}}{\fldrslt \cf15 second normal form}}\'a0and
+\f7\fs30 \cf3 \
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\
+\pard\pardeftab720\li1020\fi-480\sl440\sa20\ql\qnatural
+
+\f0\fs28 \cf14 2.
+\f8\fs18 \'a0\'a0 
+\f0\fs28 all the attributes in a table are dependent on the\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Primary_key"}}{\fldrslt \cf15 primary key}}\'a0and only the primary key.
+\f7\fs30 \cf3 \
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\
+\pard\pardeftab720\sl440\sa160\ql\qnatural
+
+\f0\b\fs28 \cf14 Second normal form
+\b0 \'a0(
+\b 2NF
+\b0 ) is a\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Database_normalization#Normal_forms"}}{\fldrslt \cf15 normal form}}\'a0used in\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Database_normalization"}}{\fldrslt \cf15 database normalization}}. 2NF was originally defined by\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/E.F._Codd"}}{\fldrslt \cf15 E.F. Codd}}\'a0in 1971.{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Second_normal_form#cite_note-Codd-1"}}{\fldrslt 
+\fs22 \cf15 [1]}}
+\f8\fs32 \cf3 \
+\pard\pardeftab720\sa320\ql\qnatural
+\cf3 \
+\
+\pard\pardeftab720\sl440\sa160\ql\qnatural
+
+\f0\fs28 \cf14 A table that is in\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/First_normal_form"}}{\fldrslt \cf15 first normal form}}\'a0(1NF) must meet additional criteria if it is to qualify for second normal form. Specifically: a table is in 2NF\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/If_and_only_if"}}{\fldrslt \cf15 if and only if}}\'a0it is in 1NF and no non-prime attribute is dependent on any proper\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Subset"}}{\fldrslt \cf15 subset}}\'a0of any\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Candidate_key"}}{\fldrslt \cf15 candidate key}}\'a0of the table. A non-prime attribute of a table is an attribute that is not a part of any candidate key of the table.
+\f8\fs32 \cf3 \
+\pard\pardeftab720\sa320\ql\qnatural
+\cf3 \
+\
+\pard\pardeftab720\sl440\sa160\ql\qnatural
+
+\f0\fs28 \cf14 Put simply, a table is in 2NF if and only if it is in 1NF and every non-prime attribute of the table is dependent on the whole of a candidate key.
+\f8\fs32 \cf3 \
+\pard\pardeftab720\sa320\ql\qnatural
+\cf3 \
+\
+\pard\pardeftab720\sl440\sa160\ql\qnatural
+
+\f0\b\fs28 \cf14 First normal form
+\b0 \'a0(
+\b 1NF
+\b0 ) is a property of a\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Relation_(database)"}}{\fldrslt \cf15 relation}}\'a0in a\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Relational_database"}}{\fldrslt \cf15 relational database}}. A relation is in first normal form if the\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Data_domain"}}{\fldrslt \cf15 domain}}\'a0of each\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Column_(database)"}}{\fldrslt \cf15 attribute}}\'a0contains only\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/First_normal_form#Atomicity"}}{\fldrslt \cf15 atomic}}\'a0values, and the value of each attribute contains only a single value from that domain.{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/First_normal_form#cite_note-1"}}{\fldrslt 
+\fs22 \cf15 [1]}}
+\f8\fs32 \cf3 \
+\pard\pardeftab720\sa320\ql\qnatural
+\cf3 \
+\
+\pard\pardeftab720\sl440\sa160\ql\qnatural
+{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Edgar_F._Codd"}}{\fldrslt 
+\f0\fs28 \cf15 Edgar Codd}}
+\f0\fs28 \cf14 , in a 1971 conference paper, defined a relation in first normal form to be one such that none of the domains of that relation should have elements which are themselves sets.{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/First_normal_form#cite_note-2"}}{\fldrslt 
+\fs22 \cf15 [2]}}
+\f8\fs32 \cf3 \
+\pard\pardeftab720\sl440\sa160\ql\qnatural
+
+\f0\fs28 \cf14 First normal form is an essential property of a relation in a relational database.\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Database_normalization"}}{\fldrslt \cf15 Database normalization}}\'a0is the process of representing a database in terms of relations in standard normal forms, where first normal is a minimal requirement
+\f8\fs32 \cf3 \
+\pard\pardeftab720\sa320\ql\qnatural
+\cf3 \
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 \'93Normal form: Each attribute in the table should be about the key, only the key, and nothing but the key\'94\
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Goals of normalization:
+\f8\fs32 \
+\pard\pardeftab720\li960\fi-480\ql\qnatural
+
+\f2\fs30 \cf3 \'b7
+\f8\fs18 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f7\fs30 free the database of modification anomalies
+\f8\fs32 \
+
+\f2\fs30 \'b7
+\f8\fs18 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f7\fs30 Minimize redesign when extending
+\f8\fs32 \
+
+\f2\fs30 \'b7
+\f8\fs18 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f7\fs30 Avoid bias toward any particular access pattern (this one we aren\'92t going to worry about with mongo)\
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Q2:
+\f8\fs32 \
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf12 \kerning1\expnd1\expndtw8
+Which data access pattern is not well supported by the blog schema?
+\f8\fs32 \cf3 \kerning1\expnd0\expndtw0 \
+
+\f7\fs30 \cf12 \kerning1\expnd1\expndtw8
+Providing a table of contents by tag\cf3 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sa320\ql\qnatural
+
+\f8\fs32 \cf3 \
+Rule of thumb: if your doing your schema like you would for relational db, your probably not getting the most out of mongo\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Advantage of relational : foreign key constraints - keeping data consistent\
+\
+In mongodb, embedding helps achieve consistency - pre joined\
+\
+Q3: \
+\pard\pardeftab720\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+What does Living Without Constraints refer to?\
+\pard\pardeftab720\sl480\ql\qnatural
+\cf12 \kerning1\expnd1\expndtw8
+Keeping your data consistent even though MongoDB lacks foreign key constraints\
+\
+MongoDB - no transactions - has Atomic Operations\
+Implement by:\
+Working in single document\
+Implement locking in the software\
+Tolerate a little inconsistency over short periods of time\
+\
+Q4:\
+Which of the following operations operate atomically within a single document? Check all that apply.\
+Update \
+findAndModify \
+$addToSet (within an update) \
+$push within an update \
+\
+One to one relations:\
+Considerations for embedding:\
+frequency of access\
+Size of Items - How much are they growing? Can update one without the other?\
+Size of documents - over 16 MB limit\
+Atomiticy of data - embed to update all at once\
+\
+Q5:\
+What's a good reason you might want to keep two documents that are related to each other one-to-one in separate collections? Check all that apply.\
+To reduce the working set size of your application.\
+Because the combined size of the documents would be larger than 16MB\
+\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f7\fs30 \cf3 \kerning1\expnd0\expndtw0 One to many relations:\
+Use "true-linking" - linking\
+\
+One to few:\
+single collection\
+\pard\pardeftab720\ql\qnatural
+\cf3 \
+\
+Q6:\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+When is it recommended to represent a one to many relationship in multiple collections?\
+Whenever the many is large\
+\
+Many to many Relationships (tend to be few to few):\
+Avoid embedding\
+Link them by creating array in document that points to other documents\
+Will you want to insert items into system that don't yet have a relation?\
+\
+Multikeys:\
+Linking and embedding works well in mongodb because:\
+Multikey Indexes\
+Create Index:\
+db.students.ensureIndex(\{'teachers':1\});\
+Query:\
+db.students.find(\{'teachers':\{$all:[0,1]\}\});\
+db.students.find(\{'teachers':\{$all:[0,1]\}\}).explain(); - lists info - isMultiKey:true\
+\
+Benefits of Embedding:\
+Improved Read performance - Reduces latency of spinning disks\
+One round trip to Database\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f7\b \cf12 \kerning1\expnd1\expndtw8
+Q:
+\f6\b0 \kerning1\expnd1\expndtw8
+\
+Given the following typical document for a e-commerce category hierarchy collection called 
+\f7\i \kerning1\expnd1\expndtw8
+categories
+\f1\i0\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\{\
+\pard\pardeftab720\sl300\ql\qnatural
+\cf3 \kerning1\expnd1\expndtw8
+  _id: 34,\
+  name : "Snorkeling",\
+  parent_id: 12,\
+  ancestors: [12, 35, 90]\
+\}\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f7\i\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\i0 \cf12 \kerning1\expnd1\expndtw8
+db.categories.find(\{ancestors:34\}) (Looks for all items that have 34 in "ancestors"\
+\
+When to denormalize:\
+You normalize when you want to avoid modification anomalies that come from duplication of data\
+Embedding prevents duplication of data\
+Linking avoids duplication of data\
+Many to Many - to avoid duplication link through arrays of ids\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\f0\fs28 \cf3 \kerning1\expnd0\expndtw0 ------------------------------\
+homework 3_1:\
+~/Desktop/mongo-db_course/week_3/homework_3_1\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+mongoimport -d school -c students < students.json\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\f0\fs28 \cf3 \cb1 \kerning1\expnd0\expndtw0 (imported students collection to school db)\
+npm install mongodb\
+Find all dbs:\
+>mongo\
+show dbs\
+show collections\
+use <db>\
+db.students.find().pretty()\
+wrong answer:\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\fs24 \cf3 \cb5 \{ "_id" : 64, "average" : 90.21930337096714 \}\
+\
+\{ _id: 199,\
+  name: 'Rae Kohout',\
+  scores: \
+   [ \{ type: 'homework', score: 28.86823689842918 \},\
+     \{ type: 'quiz', score: 49.61295450928224 \},\
+     \{ type: 'exam', score: 82.11742562118049 \} ] \}\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\fs28 \cf3 \cb1 ------------------------------\
+homework 3_2:\
+Wrong Path?:----- No, just needed to have blog running in a different terminal than the validator -----------------------------\
+~/Desktop/mongo-db_course/week_3/homework_3_2_manual_validation_version/hw3-2and3-3/hw3-2and3-3/blog\
+~/Desktop/mongo-db_course/week_3/homework_3_2_manual_validation_version/hw3-2validate/hw3-2validate/\
+----------------------------------\
+~/Desktop/mongo-db_course/week_3_schema_design.47320b83dff6/homework_3_2_manual_validation_version/hw3-2and3-3/hw3-2and3-3/blog\
+~/Desktop/mongo-db_course/week_3_schema_design.47320b83dff6/homework_3_3_manual_validation_version/
+\f1\fs22 \cb13 \kerning1\expnd1\expndtw8
+hw3-3validate
+\f0\fs28 \cb1 \kerning1\expnd0\expndtw0 /
+\f1\fs22 \cb13 \kerning1\expnd1\expndtw8
+hw3-3validate
+\f0\fs28 \cb1 \kerning1\expnd0\expndtw0 /\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+hw3-3validate\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\f0\fs28 \cf3 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+hw3-3validate.js\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ql\qnatural\pardirnatural
+
+\f0\fs28 \cf3 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+\cf3 use blog\
+db.posts.find();\
+show dbs\
+show collections
+\fs24 \cb5 \
+\pard\pardeftab720\sl340\ql\qnatural
+
+\f1\fs28 \cf0 \cb2 \
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\f0 \cf3 \cb1 ----------------------------------------------------------------------------------\
+Week 4\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Performance:\
+\pard\pardeftab720\sl380\sa240\ql\qnatural
+
+\f3\fs24 \cf3 \
+*****\
+.explain() - gives information on what the query is looking for\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Speed of query execution/Indexing
+\f3\fs24 \
+
+\f7\fs30 Do not want to scan entire document- bad performance
+\f3\fs24 \
+
+\f7\fs30 Finding something in ordered list is fast, unordered is slow
+\f3\fs24 \
+
+\f7\fs30 Indexing \'96 Ordered list of keys/pointers to the data
+\f3\fs24 \
+
+\f7\fs30 Write performance slower because they require updates on the index\
+\pard\pardeftab720\sl380\sa240\ql\qnatural
+
+\f3\fs28 \cf3 \
+\pard\pardeftab720\ql\qnatural
+\cf3 *** Order of compound indexes is important:\
+In order for a database to index items, you have to give it a left-most set\
+Once this is provided, you can provide an index to the right:\
+1\
+1,2\
+1,2,3
+\fs24 \
+\pard\pardeftab720\sl380\sa240\ql\qnatural
+\cf3 \
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Db.students.ensureIndex(\{student_id:1\})
+\f3\fs24 \
+
+\f7\fs30 Builds an index for these items
+\f3\fs24 \
+
+\f7\fs30 Compound index \'96 two items in index\
+\pard\pardeftab720\sl380\sa240\ql\qnatural
+
+\f3\fs24 \cf3 \
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Needs left item to be present in query
+\f3\fs24 \
+
+\f7\fs30 db.students.ensureIndex(\{class:1,student_name:1\});\
+\pard\pardeftab720\sl380\sa240\ql\qnatural
+
+\f3\fs24 \cf3 \
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Find Indexes:
+\f3\fs24 \
+
+\f7\fs30 Db.system.indexes.find() \'96 finds all the indexes in a db
+\f3\fs24 \
+
+\f7\fs30 Db.students.getIndexes() \'96 finds all the indexes in a collection
+\f3\fs24 \
+
+\f7\fs30 Db.students.dropIndex(\{\'91student_id\'92:1\}) \'96remove index\
+\pard\pardeftab720\sl380\sa240\ql\qnatural
+
+\f3\fs24 \cf3 \
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Multikey indexes:
+\f3\fs24 \
+
+\f7\fs30 Supports adding index on key whose value is array (multikey index)
+\f3\fs24 \
+
+\f7\fs30 Only supports indexing one array per document
+\f3\fs24 \
+
+\f7\fs30 Evaluates this when document is added\
+\pard\pardeftab720\sl380\sa240\ql\qnatural
+
+\f3\fs24 \cf3 \
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Q3
+\f3\fs24 \
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf12 \kerning1\expnd1\expndtw8
+Which of the following inserts are valid to this collection?
+\f3\fs24 \cf3 \kerning1\expnd0\expndtw0 \
+
+\f7\fs30 \cf12 \kerning1\expnd1\expndtw8
+Right - db.foo.insert(\{a:["apples","oranges"], b:"grapes"\})
+\f3\fs24 \cf3 \kerning1\expnd0\expndtw0 \
+
+\f7\fs30 \cf12 \kerning1\expnd1\expndtw8
+Right - db.foo.insert(\{a:"grapes", b:"oranges"\})
+\f3\fs24 \cf3 \kerning1\expnd0\expndtw0 \
+
+\f7\fs30 \cf12 \kerning1\expnd1\expndtw8
+Right - db.foo.insert(\{a:"grapes", b:[8,9,10]\})
+\f3\fs24 \cf3 \kerning1\expnd0\expndtw0 \
+
+\f7\fs30 \cf12 \kerning1\expnd1\expndtw8
+Wrong - db.foo.insert(\{a:[1,2,3], b:[5,6,7]\})\cf3 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\f0\fs28 \cf3 \
+db.stuff.remove(\{'_id': 543254525\}) - removes item\
+db.stuff.ensureIndex(\{thing:1\}, \{unique:true]) - insures a unique index\
+_id - unique without mongo telling you  it is\
+Q4:\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Please provide the mongo shell command to add a unique index to the collection 
+\f7\i \kerning1\expnd1\expndtw8
+students
+\f6\i0 \kerning1\expnd1\expndtw8
+ on the keys
+\f7\i \kerning1\expnd1\expndtw8
+student_id
+\f6\i0 \kerning1\expnd1\expndtw8
+, 
+\f7\i \kerning1\expnd1\expndtw8
+class_id
+\f6\i0 \kerning1\expnd1\expndtw8
+.
+\f0\fs28 \cf3 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+\cf3 db.students.ensureIndex(\{student_id:1,class_id:1\},\{unique:true\});\
+\
+Remove duplicates when setting unique keys:\
+\{unique:true,dropDups:true\} - removes all the documents except for one - Big hammer\
+\
+Q5:\
+db.students.ensureIndex(\{student_id:1,class_id:1\},\{unique:true,dropDups:true\});\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+If you choose the dropDups option when creating a unique index, what will the MongoDB do to documents that conflict with an existing index entry?\
+Delete them for ever and ever, Amen.\
+\
+Null is considered a duplicate\
+\
+Sparse - only creates index entries if the index exists\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\f0\fs28 \cf3 \kerning1\expnd0\expndtw0 db.students.ensureIndex(\{student_id:1,class_id:1\},\{unique:true,sparse:true\});\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+mongodb 2.4 - uses sparse index by default on sort()\
+mongodb 2.6 - does not use the sparse index by default on sort()\
+\
+.hint() - forces mongo to use this key in the query\
+\
+Q6:\
+Suppose you had the following documents in a collection called 
+\f7\i \kerning1\expnd1\expndtw8
+people
+\f6\i0 \kerning1\expnd1\expndtw8
+ with the following docs:
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl300\ql\qnatural
+\cf3 \kerning1\expnd1\expndtw8
+> db.people.find()\
+\{ "_id" : ObjectId("50a464fb0a9dfcc4f19d6271"), "name" : "Andrew", "title" : "Jester" \}\
+\{ "_id" : ObjectId("50a4650c0a9dfcc4f19d6272"), "name" : "Dwight", "title" : "CEO" \}\
+\{ "_id" : ObjectId("50a465280a9dfcc4f19d6273"), "name" : "John" \}\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+And there is an index defined as follows:
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl300\ql\qnatural
+\cf3 \kerning1\expnd1\expndtw8
+> db.people.ensureIndex( \{ title : 1 \} , \{ sparse : 1 \} )\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+If you perform the following query, what do you get back, and why?
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl300\ql\qnatural
+\cf3 \kerning1\expnd1\expndtw8
+> db.people.find( \{ title : null \} ).hint( \{ title : 1 \} )\
+Answer:\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+**** No documents, because the query uses the index and there are no documents with title:null in the index.\
+\
+by default index created in foreground, blocks other writers\
+\{background:true\} - writes can happen concurrently - slower performance\
+\
+***In production you have to do it in the background, or you block everyone else\
+\
+Q 6:\
+Which things are true about creating an index in the background in MongoDB. Check all that apply.\
+*A mongod instance can only build one background index at a time per database. \
+*Although the database server will continue to take requests, a background index creation still blocks the mongo shell that you are using to create the index. \
+*Creating an index in the background takes longer than creating it in the foreground \
+\
+.explain:\
+'cursor':'BasicIndex' - there was no index used in this query\
+'millis' - milliseconds to execute query\
+scannedObjects - # documents looked at to answer query\
+indexBounds - bounds used to look up index\
+indexOnly - whether or not db query could be satisfied with just the index (covered index) - didn't need to go to the collection to answer query (all info needed is in query)\
+covered queries - nscannedObjects will be 0\
+\
+*** Why cant it use a, b and c???\
+- go to beginning to answer\
+\
+Mongo memorizes what index to use for what kind of query\
+forgets every 100 or so queries\
+\
+Q:7:\
+Given collection foo with the following index:
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl300\ql\qnatural
+\cf3 \kerning1\expnd1\expndtw8
+db.foo.ensureIndex(\{a:1, b:1, c:1\})\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Which of the following queries will use the index?\
+Incorrect: db.foo.find(\{b:3, c:4\})\
+Correct: db.foo.find(\{a:3\})\
+Correct: db.foo.find(\{c:1\}).sort(\{a:1, b:1\}) (does not use the index for the query, C)\
+Incorrect: db.foo.find(\{c:1\}).sort(\{a:-1, b:1\}) - This is incorrect because the key is sorted differently than the query. If weren't using compound key b, it would be able to use it by reversing the sort order. Cant do that with the compound key)\
+\
+Want to keep index in memory (most imp), and data(next in imptce) in memory, not on disk\
+Size of index imp\
+db.students.stat() - tells you size of collection\
+db.students.totalIndexSize() - size of indexes in collection\
+\
+Index cardinality - number of index points for each type of index mongo supports\
+Regular - 1:1\
+Sparse -  <= # of documents(1:0when doc missing key in index)\
+Multi-Key - >= # documents (index point for every one of array keys)\
+\
+Q:\
+you update a document with a key called tags and that update causes the document to need to get moved on disk. If the document has 100 tags in it, and if the tags array is indexed with a multikey index, how many index points need to be updated in the index to accomodate the move? Put just the number below.\
+Answ : 100\
+\
+----\
+Want compound indexes to be as selective as possible.\
+Minimize the amount of data you have to go through (use indexes you can narrow down in your query)\
+\
+Q:\
+Given the following attributes of automobiles: color, weight, manufacturer, odometer mileage, which index is likely be the most selective, provided you can provide all four attributes on a search:\
+*** Odometer Mileage\
+\
+Hinting: normally mongo makes its own decision on what index to use\
+hint(\{a:1, b:1,c:1\}) - tell db to use this index\
+hint(\{$natural:1\}) - use no index\
+\
+Q:
+\f0\fs48 \kerning1\expnd1\expndtw8
+\
+
+\f6\fs32 \kerning1\expnd1\expndtw8
+Given the following documents in the 
+\f7\i \kerning1\expnd1\expndtw8
+people
+\f6\i0 \kerning1\expnd1\expndtw8
+ collection:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 > db.people.find()\
+\{ "_id" : ObjectId("50a464fb0a9dfcc4f19d6271"), "name" : "Andrew", "title" : "Jester" \}\
+\{ "_id" : ObjectId("50a4650c0a9dfcc4f19d6272"), "name" : "Dwight", "title" : "CEO" \}\
+\{ "_id" : ObjectId("50a465280a9dfcc4f19d6273"), "name" : "John" \}\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+and the following indexex:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 > db.people.getIndexes()\
+[\
+	\{\
+		"v" : 1,\
+		"key" : \{\
+			"_id" : 1\
+		\},\
+		"ns" : "test.people",\
+		"name" : "_id_"\
+	\},\
+	\{\
+		"v" : 1,\
+		"key" : \{\
+			"title" : 1\
+		\},\
+		"ns" : "test.people",\
+		"name" : "title_1",\
+		"sparse" : 1\
+	\}\
+]\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Which queries below will return all three documents? Check all that apply.\
+Correct: db.people.find().sort(\{'title':1\}).hint(\{$natural:1\}) \
+Correct: db.people.find().sort(\{'title':1\}) \
+Correct: db.people.find(\{name:\{$ne:"Kevin"\}\}).sort(\{'title':1\}) \
+Not Correct: db.people.find(\{'title':\{$ne:null\}\}).hint(\{'title':1\})\
+\
+.explain in Node driver\
+doing the explain actually runs the query, but returns document about how the query was run\
+\
+Use explain to determine whether hint is actually going to be efficient\
+\
+Efficiency of index usage\
+Inefficient queries:\
+greater than, less than, $exists \
+negative queries - need to inspect every element\
+Regex that are not stemmed on the left ^ (/^abcd)\
+\
+Geospacial indexes:\
+find things based on location\
+\
+ensureIndex(\{'location': '2_d', 'someCompoundType':1\})\
+find(\{'location':$near:[x,y]\}\}) - db returns in order of increasing distance\
+db.places.find( \{ location : \{ $near : [74,140] \} \}).limit(3)\
+\
+Q:\
+db.places.find( \{ 'location' : \{ $near : [74,140] \} \}).limit(3)\
+\
+2d sphere\
+geojson - location specification\
+geojson.org \
+mongo supports a subset of the geometry objects\
+db.places.ensureIndex(\{'location':'2dsphere'\})\
+db.places.find()\{\
+	location:\{\
+		$near:\{\
+			$geometry:\{\
+				type:"Point",\
+				coordinates: [-122, 37]\},\
+			$maxDistance:2000\
+		\}\
+	\}\
+\}).pretty()\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: GEOSPATIAL SPHERICAL\
+\pard\pardeftab720\sl480\sa440\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+What is the query that will query a collection named "stores" to return the stores that are within 1,000,000 meters of the location latitude=39, longitude=-130? Type the query in the box below. Assume the stores collection has a 2dsphere index on "loc" and please use the "$near" operator. Each store record looks like this:\
+\pard\pardeftab720\sl400\ql\qnatural
+
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\{ "_id" : \{ "$oid" : "535471aaf28b4d8ee1e1c86f" \}, "store_id" : 8, "loc" : \{ "type" : "Point", "coordinates" : [ -37.47891236119904, 4.488667018711567 ] \} \}\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+db.stores.find(\{ loc:\{ $near: \{ $geometry: \{ type: "Point", coordinates: [-130, 39]\}, $maxDistance:1000000 \} \} \})\
+\
+Full Text Search:\
+Full Text Search Index - Indexes the document similar to array, makes it searchable\
+db.sentences.ensureIndex(\{'words':'text'\})\
+db.sentences.find(\{$text:\{$search:'dog'\}\}) - searching using a text index\
+can sort by text score to find most relevant results\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: TEXT SEARCHES IN MONGODB\
+\pard\pardeftab720\sl480\sa440\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+You create a text index on the "title" field of the 
+\f7\i \kerning1\expnd1\expndtw8
+movies
+\f6\i0 \kerning1\expnd1\expndtw8
+ collection, and then perform the following text search:\
+\pard\pardeftab720\sl400\ql\qnatural
+
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+> db.movies.find( \{ $text : \{ $search : "Big Lebowski" \} \} )\
+\pard\pardeftab720\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Which of the following documents will be returned, assuming they are in the 
+\f7\i \kerning1\expnd1\expndtw8
+movies
+\f6\i0 \kerning1\expnd1\expndtw8
+ collection? Check all that apply\
+\{ "title" : "The Big Lebowski" , star: "Jeff Bridges" \}\
+\{ "title" : "Big" , star : "Tom Hanks" \}\
+\{ "title" : "Big Fish" , star: "Ewan McGregor" \}\
+\pard\pardeftab720\sl480\ql\qnatural
+\cf12 \kerning1\expnd1\expndtw8
+All are the correct answer\
+\
+Mongo logs slow queries - Check the log for slow queries\
+\
+Profiler:\
+Level 0: off\
+Level 1: log slow queries\
+Level 2: log all queries - general debugging feature\
+\
+Query the profile:\
+db.system.profile.find()\
+db.getProfilingLevel()\
+sb.setProfilingLevel(1,4) - level: 1, log queries take over 4 milliseconds\
+db.setProfilingLevel(0) - turns off profiling\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: PROFILING\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Write the query to look in the system profile collection for all queries that took longer than one second, ordered by timestamp descending.\
+db.system.profile.find(\{millis:\{$gt:1000\}\}).sort(\{ts:-1\})
+\f7\fs30 \cf3 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f0\fs24 \cf3 \cb5 \
+\
+MongoTop - high level view of where mongo is spending its time\
+Can run mongotop in separate window\
+says where spending time, read and write time\
+\
+Mongo Stat - provides more system level information\
+idx miss percentage - whether or not hits memory or has to go to disk\
+res - how much resident memory is being used\
+\
+Sharding - deploy multiple servers\
+MongoS - Router - application talks to mongoS, which then talks to servers\
+Choose an id to be the shard key, so MongoS server can send the query to the right server\
+If you remember shard key, you can get much better performance - otherwise you have to broadcast query to all servers\
+Can have multiple mongoS services\
+MongoS is often located on the same machine as the server\
+\
+HW 4-3:\
+\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\fs28 \cf3 \cb1 ~/Desktop/mongo-db_course/week_4/homework_4_3_manual_validation_version/hw4-3/hw4-3/blog\
+\pard\pardeftab720\ql\qnatural
+\cf3 Existing indexes:\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+\cf3 \{\
+\pard\pardeftab720\ql\qnatural
+\cf3 		"v" : 1,\
+		"key" : \{\
+			"_id" : 1\
+		\},\
+		"name" : "_id_",\
+		"ns" : "blog.posts"\
+	\}\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+\cf3 \
+show dbs\
+show collections\
+use <db>\
+db.students.find().pretty()
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f0\fs24 \cf3 \cb5 \kerning1\expnd0\expndtw0 Queries to optimize:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\tx8960\tx9520\tx10080\tx10640\tx11200\tx11760\tx12320\tx12880\tx13440\tx14000\tx14560\tx15120\tx15680\tx16240\tx16800\tx17360\tx17920\tx18480\tx19040\tx19600\tx20160\tx20720\tx21280\tx21840\tx22400\tx22960\tx23520\tx24080\tx24640\tx25200\tx25760\tx26320\tx26880\tx27440\tx28000\tx28560\tx29120\tx29680\tx30240\tx30800\tx31360\tx31920\tx32480\tx33040\tx33600\tx34160\tx34720\tx35280\tx35840\tx36400\tx36960\tx37520\tx38080\tx38640\tx39200\tx39760\tx40320\tx40880\tx41440\tx42000\tx42560\tx43120\tx43680\tx44240\tx44800\tx45360\tx45920\tx46480\tx47040\tx47600\tx48160\tx48720\tx49280\tx49840\tx50400\tx50960\tx51520\tx52080\tx52640\tx53200\tx53760\tx54320\tx54880\tx55440\tx56000\pardeftab720\ql\qnatural\pardirnatural
+
+\f1\fs22 \cf16 \cb1 \CocoaLigature0 --\
+this\cf0 .getPosts - Done\
+posts.find().sort(\cf17 'date'\cf0 , \cf18 -1\cf0 ).limit(num)\
+db.posts.find().sort(\{'date':-1\}).limit(10).pretty()\
+db.posts.find().sort(\{'date':-1\}).limit(10).explain()\
+db.posts.find().sort(\{'date':1\}).limit(10).explain()\
+db.posts.ensureIndex(\{date:-1\})\
+db.posts.getIndexes()\
+db.posts.ensureIndex(\{date:-1\})\
+\{\
+	"createdCollectionAutomatically" : false,\
+	"numIndexesBefore" : 1,\
+	"numIndexesAfter" : 2,\
+	"ok" : 1\
+\}\
+\
+--\
+\cf16 this\cf0 .getPostsByTag - Done\
+posts.find(\{ tags : tag \}).sort(\cf17 'date'\cf0 , \cf18 -1\cf0 ).limit(num)\
+db.posts.find(\{ 'tags' : 'lace' \}).sort(\{'date':-1\}).limit(10).explain()\
+db.posts.ensureIndex(\{tags:1\})\
+\{\
+	"createdCollectionAutomatically" : false,\
+	"numIndexesBefore" : 2,\
+	"numIndexesAfter" : 3,\
+	"ok" : 1\
+\}\
+--\
+\cf16 this\cf0 .getPostByPermalink - Done\
+posts.findOne(\{\cf17 'permalink'\cf0 : permalink\}
+\f0\fs24 \cf3 \cb5 \CocoaLigature1 \
+
+\f1\fs22 \cf0 \cb1 \CocoaLigature0 db.posts.findOne(\{\cf17 'permalink'\cf0 : 'ireydnzvxksryqpvugwi'\}).explain()
+\f0\fs24 \cf3 \cb5 \CocoaLigature1 \
+
+\f1\fs22 \cf0 \cb1 \CocoaLigature0 db.posts.find(\{\cf17 'permalink'\cf0 : 'ireydnzvxksryqpvugwi'\}).explain()\
+db.posts.ensureIndex(\{\cf17 permalink\cf0 :1\})\
+------
+\f0\fs24 \cf3 \cb5 \CocoaLigature1 \
+\pard\pardeftab720\sl440\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+http://localhost:8082/\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 \kerning1\expnd0\expndtw0 Db.students.ensureIndex(\{student_id:1\})
+\f3\fs24 \
+
+\f7\fs30 Builds an index for these items
+\f3\fs24 \
+
+\f7\fs30 Compound index \'96 two items in index\
+\pard\pardeftab720\sl380\sa240\ql\qnatural
+
+\f3\fs24 \cf3 \
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Needs left item to be present in query
+\f3\fs24 \
+
+\f7\fs30 db.students.ensureIndex(\{class:1,student_name:1\});\
+\pard\pardeftab720\sl380\sa240\ql\qnatural
+
+\f3\fs24 \cf3 \
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Find Indexes:
+\f3\fs24 \
+
+\f7\fs30 Db.system.indexes.find() \'96 finds all the indexes in a db
+\f3\fs24 \
+
+\f7\fs30 Db.students.getIndexes() \'96 finds all the indexes in a collection
+\f3\fs24 \
+
+\f7\fs30 Db.students.dropIndex(\{\'91student_id\'92:1\}) \'96remove index\
+\
+------\
+HW 4-4\
+\pard\pardeftab720\sl340\sa280\ql\qnatural
+
+\f0\fs28 \cf3 ~/Desktop/mongo-db_course/week_4/homework_4_4\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+db.system.profile.find(\{millis:\{$gt:1000\}\}).sort(\{ts:-1\})\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f0\fs24 \cf3 \cb5 \kerning1\expnd0\expndtw0 db.profile.find().sort(\{millis:-1\}).limit(1).pretty()\
+**** would have been better to only return those in the students collection\
+-------------------------------------------------------------------------------------------------------------\
+\pard\tx560\pardeftab720\sl380\ql\qnatural
+
+\f3 \cf3 \cb1 \
+Aggregation Frameworks\
+\
+Rooted in SQL GroupBy\
+\
+24 vids\
+\
+db.products.aggregate([\
+\{$group:\
+\{\
+_id:"$manufacturer", num_products:\{$sum:1\}\
+\}\
+\}\
+])\
+\
+-----------------------------\
+Q1:\
+QUIZ: SIMPLE AGGREGATION EXAMPLE\
+\
+Write the aggregation query that will find the number of products by category of a collection that has the form:\
+\{\
+"_id" : ObjectId("50b1aa983b3d0043b51b2c52"),\
+"name" : "Nexus 7",\
+"category" : "Tablets",\
+"manufacturer" : "Google",\
+"price" : 199\
+\}\
+\
+Have the resulting key be called "num_products," as in the video lesson. Hint, you just need to change which key you are aggregating on relative to the examples shown in the lesson.\
+Answer:\
+db.products.aggregate([\
+\{$group:\
+\{\
+_id:"$category", num_products:\{$sum:1\}\
+\}\
+\}\
+])\
+\
+------------------\
+\
+Aggregation Pipeline stages (each can appear more than once, in any order)\
+$project - reshape document(select out feilds) - 1:1\
+$match - filtering - select only docs you want to analyize - n:1 \
+$group - aggregate - $sum, $count, group together documents - n:1\
+$sort - 1:1\
+$skip - skips - n:1\
+$limit - limits - n:1\
+$unwind - (flattens) normalizes data - 1:n - expands number of documents\
+$out - outputs aggregation to anothoer collection (rather than puttin into a cursor which is default) - 1:1\
+-------------\
+$redact - can limit docs certain users see\
+$geonear - limit docs based on location\
+\
+--------\
+QUIZ: SIMPLE EXAMPLE EXPANDED\
+\
+If you have the following collection of stuff:\
+> db.stuff.find()\
+\{ "_id" : ObjectId("50b26f9d80a78af03b5163c8"), "a" : 1, "b" : 1, "c" : 1 \}\
+\{ "_id" : ObjectId("50b26fb480a78af03b5163c9"), "a" : 2, "b" : 2, "c" : 1 \}\
+\{ "_id" : ObjectId("50b26fbf80a78af03b5163ca"), "a" : 3, "b" : 3, "c" : 1 \}\
+\{ "_id" : ObjectId("50b26fcd80a78af03b5163cb"), "a" : 3, "b" : 3, "c" : 2 \}\
+\{ "_id" : ObjectId("50b26fd380a78af03b5163cc"), "a" : 3, "b" : 5, "c" : 3 \}\
+and you perform the following aggregation:\
+db.stuff.aggregate([\{$group:\{_id:'$c'\}\}])\
+How many documents will be in the result set from aggregate?\
+Answer:\
+3 - there are 3 unique values for c\
+\
+------------------------\
+\
+Compound Grouping:\
+Use a compound _id key: \
+db.products.aggregate([\
+\{$group:\
+\{\
+_id:\{\
+"manufacturer":"$manufacturer",\
+"category":"$category"\},\
+num_products:\{$sum:1\}\
+\}\
+\}\
+])\
+\
+-------------------------\
+\
+QUIZ: COMPOUND GROUPING\
+\
+Given the following collection:\
+> db.stuff.find()\
+\{ "_id" : ObjectId("50b26f9d80a78af03b5163c8"), "a" : 1, "b" : 1, "c" : 1 \}\
+\{ "_id" : ObjectId("50b26fb480a78af03b5163c9"), "a" : 2, "b" : 2, "c" : 1 \}\
+\{ "_id" : ObjectId("50b26fbf80a78af03b5163ca"), "a" : 3, "b" : 3, "c" : 1 \}\
+\{ "_id" : ObjectId("50b26fcd80a78af03b5163cb"), "a" : 3, "b" : 3, "c" : 2 \}\
+\{ "_id" : ObjectId("50b26fd380a78af03b5163cc"), "a" : 3, "b" : 5, "c" : 3 \}\
+\{ "_id" : ObjectId("50b27f7080a78af03b5163cd"), "a" : 3, "b" : 3, "c" : 2 \}\
+And the following aggregation query:\
+db.stuff.aggregate([\{$group:\
+\{_id:\
+\{'moe':'$a', \
+'larry':'$b',\
+'curly':'$c'\
+\}\
+\}\
+\}])\
+How many documents will be in the result set?\
+Answer: 5 - two of the documents have the same values for a,b,c, so one wont be returned (only req for _id is that it is unique)\
+\
+-----------------------------------\
+\
+Using a document for _id\
+_id of a document can be a complex document - not unique to aggregation\
+\
+------------------------------\
+\
+\
+Aggregation Expressions:\
+QUIZ: AGGREGATION EXPRESSIONS\
+\
+Which of the following aggregation expressions must be used in conjunction with a sort to make any sense?\
+\
+$addToSet\
+$first\
+$last\
+$max\
+$min\
+$avg\
+$push\
+$sum\
+\
+Answer:\
+$first\
+$last\
+\
+-----------------------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: USING $SUM\
+\pard\tx560\pardeftab720\sl380\ql\qnatural
+
+\f3\fs24 \cf3 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl480\sa440\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Suppose we have a collection of populations by postal code. The postal codes in are in the _id field, and are therefore unique. Documents look like this:\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\{\
+	"city" : "CLANTON",\
+	"loc" : [\
+		-86.642472,\
+		32.835532\
+	],\
+	"pop" : 13990,\
+	"state" : "AL",\
+	"_id" : "35045"\
+\}\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Write an aggregation query to sum up the population (pop) by state and put the result in a field called population.\
+use gag\
+-
+\f3\fs24 \cf3 \kerning1\expnd0\expndtw0 \
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+db.zips.aggregate([\{"$group":\{"_id":"$state", "population":\{$sum:"$pop"\}\}\}])
+\f3\fs24 \cf3 \kerning1\expnd0\expndtw0 \
+\pard\tx560\pardeftab720\sl380\ql\qnatural
+\cf3 \
+-----------------------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: USING $AVG\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Given population data by zip code (postal code), write an aggregation expression to calculate the average population of a zip code (postal code) by state. This dataset only contains four states, and only 50 zip codes per state, because some browsers have trouble working with large data sets.\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+db.zips.aggregate([\{"$group":\{"_id":"$state", "average_pop":\{$avg:"$pop"\}\}\}])
+\f0\fs48 \kerning1\expnd1\expndtw8
+\
+\pard\tx560\pardeftab720\sl380\ql\qnatural
+
+\f3\fs24 \cf3 \kerning1\expnd0\expndtw0 \
+-----------------------------------\
+\
+Add to set - No parallel in SQL \
+\pard\tx560\pardeftab720\sl380\ql\qnatural
+
+\b \cf3 Adds it to array only if it isn't there
+\b0 \
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: USING $ADDTOSET\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f7\i\fs32 \cf12 \kerning1\expnd1\expndtw8
+This problem uses the same zip code data as the $using sum quiz. See that quiz for a longer explanation.
+\f6\i0 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl480\sa440\ql\qnatural
+\cf12 \kerning1\expnd1\expndtw8
+Suppose we population by zip code (postal code) data that looks like this (putting in a query for the zip codes in Palo Alto)\
+\pard\pardeftab720\sl400\ql\qnatural
+
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+> db.zips.find(\{state:"CA",city:"PALO ALTO"\})\
+\{ "city" : "PALO ALTO", "loc" : [ -122.149685, 37.444324 ], "pop" : 15965, "state" : "CA", "_id" : "94301" \}\
+\{ "city" : "PALO ALTO", "loc" : [ -122.184234, 37.433424 ], "pop" : 1835, "state" : "CA", "_id" : "94304" \}\
+\{ "city" : "PALO ALTO", "loc" : [ -122.127375, 37.418009 ], "pop" : 24309, "state" : "CA", "_id" : "94306" \}\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Write an aggregation query that will return the postal codes that cover each city. The results should look like this:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 		\{\
+			"_id" : "CENTREVILLE",\
+			"postal_codes" : [\
+				"22020",\
+				"49032",\
+				"39631",\
+				"21617",\
+				"35042"\
+			]\
+		\},\
+\pard\tx560\pardeftab720\sl380\ql\qnatural
+
+\f3\fs24 \cf3 \cb1 \kerning1\expnd0\expndtw0 Answer:\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+db.zips.aggregate([\{"$group":\{"_id":"$city", "postal_codes":\{"$addToSet":"$_id"\}\}\}])
+\f3\fs24 \cf3 \kerning1\expnd0\expndtw0 \
+\pard\tx560\pardeftab720\sl380\ql\qnatural
+\cf3 \
+-----------------------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: USING $PUSH (push will push all items - duplicates)\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Given the zipcode dataset (explained more fully in the using $sum quiz) that has documents that look like this:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 > db.zips.findOne()\
+\{\
+	"city" : "ACMAR",\
+	"loc" : [\
+		-86.51557,\
+		33.584132\
+	],\
+	"pop" : 6055,\
+	"state" : "AL",\
+	"_id" : "35004"\
+\}\
+\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+would you expect the following two queries to produce the same result or different results?
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 db.zips.aggregate([\{"$group":\{"_id":"$city", "postal_codes":\{"$push":"$_id"\}\}\}])\
+db.zips.aggregate([\{"$group":\{"_id":"$city", "postal_codes":\{"$addToSet":"$_id"\}\}\}])\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+\
+Answer:\
+Same result (Because there are no duplicate zip codes)\
+----------------------------------------------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: USING $MAX AND $MIN\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Again thinking about the zip code database, write an aggregation query that will return the population of the postal code in each state with the highest population. It should return output that looks like this:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 \{\
+			"_id" : "WI",\
+			"pop" : 57187\
+		\},\
+		\{\
+			"_id" : "WV",\
+			"pop" : 70185\
+		\},\
+..and so on\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Once again, the collection is named zips.\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+Answer:\cf19 \kerning1\expnd1\expndtw8
+\
+\cf0 \kerning1\expnd1\expndtw8
+db.zips.aggregate([\{$group:\{"_id":"$state", pop:\{$max:"$pop"\}\}\}])\
+\
+\
+---------------------------------------------\
+\
+\
+\
+-----------------------------------\
+\
+\
+\
+Double Grouping - group more than once in the same aggregation query\
+- the first grouping is piped to the second grouping and the second result is returned\
+\
+QUIZ: DOUBLE $GROUP STAGES\
+\
+Given the following collection:\
+> db.fun.find()\
+\{ "_id" : 0, "a" : 0, "b" : 0, "c" : 21 \}\
+\{ "_id" : 1, "a" : 0, "b" : 0, "c" : 54 \}\
+\{ "_id" : 2, "a" : 0, "b" : 1, "c" : 52 \}\
+\{ "_id" : 3, "a" : 0, "b" : 1, "c" : 17 \}\
+\{ "_id" : 4, "a" : 1, "b" : 0, "c" : 22 \}\
+\{ "_id" : 5, "a" : 1, "b" : 0, "c" : 5 \}\
+\{ "_id" : 6, "a" : 1, "b" : 1, "c" : 87 \}\
+\{ "_id" : 7, "a" : 1, "b" : 1, "c" : 97 \}\
+\
+And the following aggregation query\
+db.fun.aggregate([\{$group:\{_id:\{a:"$a", b:"$b"\}, c:\{$max:"$c"\}\}\}, \{$group:\{_id:"$_id.a", c:\{$min:"$c"\}\}\}])\
+What values are returned?\
+\
+Answer:\
+52 and 22\
+\
+See video for explaination:\
+https://university.mongodb.com/courses/10gen/M101JS/2014_October/courseware/Week_5_Aggregation_Framework/52aa3bb8e2d4232c54a18b04/\
+-----------------------------------\
+\
+Using $Project  - Lets you reshape document: for every document, you reshape the document - 1:1\
+\
+remove Keys \
+add new keys\
+reshape keys\
+use simple formulas on keys\
+- $toUpper\
+-$toLower\
+-$add\
+-$multiply\
+\
+- can filter, get rid of data before sending to the grouping stage - efficiency\
+\
+-----\
+QUIZ: USING $PROJECT\
+\
+Write an aggregation query with a single projection stage that will transform the documents in the zips collection from this:\
+\{\
+	"city" : "ACMAR",\
+	"loc" : [\
+		-86.51557,\
+		33.584132\
+	],\
+	"pop" : 6055,\
+	"state" : "AL",\
+	"_id" : "35004"\
+\}\
+\
+to documents in the result set that look like this:\
+\{\
+	"city" : "acmar",\
+	"pop" : 6055,\
+	"state" : "AL",\
+	"zip" : "35004"\
+\}\
+So that the checker works properly, please specify what you want to do with the _id key as the first item. The other items should be ordered as above. As before, assume the collection is called zips. You are running only the projection part of the pipeline for this quiz. \
+\
+A few facts not mentioned in the lesson that you will need to know to get this right: If you don't mention a key, it is not included, except for _id, which must be explicitly suppressed. If you want to include a key exactly as it is named in the source document, you just write key:1, where key is the name of the key. You will probably get more out of this quiz is you download the zips.json file and practice in the shell. zips.json link is in the using $sum quiz\
+\
+Answer:\
+db.zips.aggregate([\{$project:\{_id:0, city:\{$toLower:"$city"\}, pop:1, state:1, zip:"$_id"\}\}])\
+\
+-----------------------------------\
+$ match performs filtering n:1 \
+Can perform filtering before aggregation\
+Filter the results after aggreggation\
+use agg\
+db.zips.aggregate([\
+	\{$match:\
+		\{\
+			state:"CA"\
+		\}\
+	\},\
+	\{$group:\
+		\{\
+			_id: "$city",\
+			population: \{$sum:"$pop"\},\
+			zip_codes:\{$addToSet: "$_id"\}\
+		\}\
+	\},\
+	\{$project:\
+		\{\
+			_id:0,\
+			city: "$_id",\
+			population: 1,\
+			zip_codes:1\
+		\}\
+	\}\
+])\
+----------------\
+match:\
+-matches the state\
+--\
+group:\
+--groups by city\
+--sums the population\
+--renames zip code, and puts them in an array\
+--\
+-project:\
+-- supress id\
+-- use value of id in city\
+-- render population field\
+-- render zip_codes field\
+----------------\
+QUIZ: USING $MATCH\
+\
+Again, thinking about the zipcode collection, write an aggregation query with a single match phase that filters for zipcodes with greater than 100,000 people. You may need to look up the use of the $gt operator in the MongoDB docs. \
+\
+Assume the collection is called zips.\
+db.zips.aggregate([\{$match:\{pop:\{$gt:100000\}\}\}])\
+\
+\
+-----------------------------------\
+Sorting\
+Supports disk and memory based sorting (default memory)\
+memory - limited to 100MB\
+can sort before or after grouping phase\
+\
+db.zips.aggregate([\
+	\{$match:\
+		\{\
+			state:"NY"\
+		\}\
+	\},\
+	\{$group:\
+		\{\
+			_id: "$city",\
+			population: \{$sum:"$pop"\}\
+		\}\
+	\},\
+	\{$project:\
+		\{\
+			_id:0,\
+			city: "$_id",\
+			population: 1\
+		\}\
+	\},\
+	\{$sort:\
+		\{\
+			population: -1\
+		\}\
+	\}\
+])\
+-----------\
+QUIZ: USING $SORT\
+\
+Again, considering the zipcode collection, which has documents that look like this,\
+\{\
+	"city" : "ACMAR",\
+	"loc" : [\
+		-86.51557,\
+		33.584132\
+	],\
+	"pop" : 6055,\
+	"state" : "AL",\
+	"_id" : "35004"\
+\}\
+\
+Write an aggregation query with just a sort stage to sort by (state, city), both ascending. \
+Answer:\
+db.zips.aggregate([\
+	\{$sort:\
+		\{\
+			state: 1,city:1\
+		\}\
+	\}\
+])\
+\
+-----------------------------------\
+$skip and $limit\
+must sort first (in find, things are automatically sorted, so the order doesnt matter between skip and limit)\
+order of skip and limit in aggregation DOES matter\
+\
+\
+db.zips.aggregate([\
+	\{$match:\
+		\{\
+			state:"NY"\
+		\}\
+	\},\
+	\{$group:\
+		\{\
+			_id: "$city",\
+			population: \{$sum:"$pop"\}\
+		\}\
+	\},\
+	\{$project:\
+		\{\
+			_id:0,\
+			city: "$_id",\
+			population: 1\
+		\}\
+	\},\
+	\{$sort:\
+		\{\
+			population: -1\
+		\}\
+	\},\
+	\{$skip:10\},\
+	\{$limit:5\}\
+])\
+\
+-------\
+QUIZ: USING $LIMIT AND $SKIP\
+\
+Suppose you change the order of skip and limit in the query shown in the lesson, to look like this:\
+db.zips.aggregate([\
+    \{$match:\
+     \{\
+	 state:"NY"\
+     \}\
+    \},\
+    \{$group:\
+     \{\
+	 _id: "$city",\
+	 population: \{$sum:"$pop"\},\
+     \}\
+    \},\
+    \{$project:\
+     \{\
+	 _id: 0,\
+	 city: "$_id",\
+	 population: 1,\
+     \}\
+    \},\
+    \{$sort:\
+     \{\
+	 population:-1\
+     \}\
+    \},\
+    \{$limit: 5\},\
+    \{$skip: 10\} \
+])\
+\
+How many documents do you think will be in the result set?\
+Answer:\
+0\
+\
+-----------------------------------\
+$first and $last\
+Grabs the first or last from each grouping (including compound groupings)\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: REVISITING $FIRST AND $LAST\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Given the following collection:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 > db.fun.find()\
+\{ "_id" : 0, "a" : 0, "b" : 0, "c" : 21 \}\
+\{ "_id" : 1, "a" : 0, "b" : 0, "c" : 54 \}\
+\{ "_id" : 2, "a" : 0, "b" : 1, "c" : 52 \}\
+\{ "_id" : 3, "a" : 0, "b" : 1, "c" : 17 \}\
+\{ "_id" : 4, "a" : 1, "b" : 0, "c" : 22 \}\
+\{ "_id" : 5, "a" : 1, "b" : 0, "c" : 5 \}\
+\{ "_id" : 6, "a" : 1, "b" : 1, "c" : 87 \}\
+\{ "_id" : 7, "a" : 1, "b" : 1, "c" : 97 \}\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+What would be the value of c in the result from this aggregation query
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 db.fun.aggregate([\
+    \{$match:\{a:0\}\},\
+    \{$sort:\{c:-1\}\}, \
+    \{$group:\{_id:"$a", c:\{$first:"$c"\}\}\}\
+])\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5 \cf0 \cb1 \kerning1\expnd1\expndtw8
+Answer:\
+54\
+\
+-----------------------------------\
+\
+$unwind\
+un-joins arrays. (data explosion) allows you to group pre-joined data by un-joining\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: USING $UNWIND\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Suppose you have the following collection:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 db.people.find()\
+\{ "_id" : "Barack Obama", "likes" : [ "social justice", "health care", "taxes" ] \}\
+\{ "_id" : "Mitt Romney", "likes" : [ "a balanced budget", "corporations", "binders full of women" ] \}\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5 \cf0 \cb1 \kerning1\expnd1\expndtw8
+Answer:\
+6\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: $UNWIND EXAMPLE\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Which grouping operator will enable to you to reverse the effects of an unwind?\
+$push\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+-----------------------------------\
+\
+Double $unwind\
+unwind document with 2 arrays\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: DOUBLE $UNWIND\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Can you reverse the effects of a double unwind (2 unwinds in a row) in our inventory collection (shown in the lesson ) with the $push operator?\
+Yes\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+\
+-----------------------------------\
+\pard\pardeftab720\sl960\sa480\ql\qnatural
+
+\f3\fs72 \cf6 \kerning1\expnd0\expndtw0 SQL to Aggregation Mapping Chart
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+{\field{\*\fldinst{HYPERLINK "http://docs.mongodb.org/manual/reference/sql-aggregation-comparison/"}}{\fldrslt \cf0 http://docs.mongodb.org/manual/reference/sql-aggregation-comparison/}}\kerning1\expnd1\expndtw8
+\
+\
+-----------------------------------\
+\
+Limitations on Aggregation:\
+-100 MB Limit for pipeline stages - if you exceed, they wont come back\
+Can use "allowDiskUse"\
+-16 MB limit in python\
+Can set cursor = \{\}\
+-Sharding - groupie, sort, results will go to the primary shard (stops distribution of work) (not as scalable for map/reduce)\
+Use Hadoop for map/reduce (need to get your data out of mongo and into Hadoop) - Hadoop connector\
+\
+\
+\
+-----------------------------------\
+Homework 5.1:
+\f0\fs26 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\ql\qnatural
+\cf0 \
+db.posts.aggregate(\{ '$unwind': '$comments'\},\{ '$group': \{ _id:\{ 'author':'$comments.author'\}, 'comments':
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\{'$push':'$comments.body'\}
+\f0\fs26 \cf0 \cb1 \kerning1\expnd0\expndtw0 \}\},\{'$unwind':'$comments'\},\{ '$group': \{ _id: '$_id', 'commentsCount':\{'$sum':1\}\}\},\{'$sort':\{'commentsCount':1\}\},
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+\{'$limit': 5\}
+\f0\fs26 \cf0 \kerning1\expnd0\expndtw0  )\
+\
+\
+\
+\pard\pardeftab720\sl340\ql\qnatural
+
+\f1\fs28 \cf0 \cb2 \{ $unwind:"$users" \}, \
+\{ $group : \{_id : "$_id", count : \{$sum : 1\} \} \}\
+\pard\pardeftab720\ql\qnatural
+
+\f5 \cf0 \cb1 \kerning1\expnd1\expndtw8
+\
+\
+\pard\pardeftab720\sl400\ql\qnatural
+
+\f1 \cf3 \cb13 \kerning1\expnd1\expndtw8
+db.zips.aggregate([\{"$group":\{"_id":"$city", "postal_codes":\{"$push":"$_id"\}\}\}])
+\f5 \cf0 \cb1 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+db.zips.aggregate([\
+	\{$match:\
+		\{\
+			state:"NY"\
+		\}\
+	\},\
+	\{$group:\
+		\{\
+			_id: "$city",\
+			population: \{$sum:"$pop"\}\
+		\}\
+	\},\
+	\{$project:\
+		\{\
+			_id:0,\
+			city: "$_id",\
+			population: 1\
+		\}\
+	\},\
+	\{$sort:\
+		\{\
+			population: -1\
+		\}\
+	\},\
+	\{$skip:10\},\
+	\{$limit:5\}\
+])
+\f0\fs26 \kerning1\expnd0\expndtw0 \
+
+\f5\fs28 \kerning1\expnd1\expndtw8
+-----------------------------------\
+Homework 5.2:\
+~/Desktop/mongo-db_course/week_5_aggregation_framework.aa35ebe6f2f0/homework_5_2_hands_on/small_zips/small_zips.json\
+\
+\{\
+	"_id" : "92278",\
+	"city" : "TWENTYNINE PALMS",\
+	"loc" : [\
+		-116.06041,\
+		34.237969\
+	],\
+	"pop" : 11412,\
+	"state" : "CA"\
+\}\
+-----\
+db.zips.aggregate([\
+    \{$match:\
+\pard\pardeftab720\sl340\ql\qnatural
+
+\f1 \cf0 \cb2 \kerning1\expnd0\expndtw0 	\{$or:[\{
+\f5 \cb1 \kerning1\expnd1\expndtw8
+state:"CA"
+\f1 \cb2 \kerning1\expnd0\expndtw0 \},\{
+\f5 \cb1 \kerning1\expnd1\expndtw8
+state:"NY"
+\f1 \cb2 \kerning1\expnd0\expndtw0 \}]\}
+\f5 \cb1 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+    \},\
+\pard\pardeftab720\sl340\ql\qnatural
+
+\f1 \cf0 \cb2 \kerning1\expnd0\expndtw0 	
+\f5 \cb1 \kerning1\expnd1\expndtw8
+\{$match:\
+	\{pop:\{$gt:25000\}\}\
+	\},\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+    \{$group:\
+     \{\
+	 _id: \{city: "$city", state: "$state"\},\
+	 population: \{$sum:"$pop"\},\
+     \}\
+    \},\
+	\{$group:\
+	 \{\
+	_id: 0,\
+	avgPop:\{$avg:"$population"\}\
+	\}\
+    \}\
+])\
+-----------------------------------\
+Homework 5.3:\
+~/Desktop/mongo-db_course/week_5_aggregation_framework.aa35ebe6f2f0/homework_5_3_hands_on/grades\
+\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+mongoimport -d test -c grades --drop grades.json\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+\
+\
+db.grades.aggregate([\
+	
+\f1 \cb2 \kerning1\expnd0\expndtw0 \{ \
+	$unwind:"$scores" \
+	\},\
+	
+\f5 \cb1 \kerning1\expnd1\expndtw8
+\{$match:\
+\pard\pardeftab720\sl340\ql\qnatural
+
+\f1 \cf0 \cb2 \kerning1\expnd0\expndtw0 	\{$or:[\{"
+\f5 \cb1 \kerning1\expnd1\expndtw8
+scores.type":"exam"
+\f1 \cb2 \kerning1\expnd0\expndtw0 \},\{"
+\f5 \cb1 \kerning1\expnd1\expndtw8
+scores.type":"homework"
+\f1 \cb2 \kerning1\expnd0\expndtw0 \}]\}
+\f5 \cb1 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+    \},\
+	\{$group:\
+     \{\
+	 _id: \{
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+student_id
+\f5\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+: "$
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+student_id
+\f5\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+", class_id: "$class_id"\},\
+	 average: \{$avg:"$scores.score"\}\
+     \}\
+    \},\
+	\{$group:\
+     \{\
+	 _id:\{class_id: "$_id.class_id"\},\
+	 average: \{$avg:"$average"\}\
+     \}\
+    \},\
+	\{$sort:\
+		\{\
+			average: -1\
+		\}\
+	\}\
+])
+\f0\fs26 \kerning1\expnd0\expndtw0 \
+
+\f5\fs28 \kerning1\expnd1\expndtw8
+-----------------------------------\
+Homework 5.4:\
+~/Desktop/mongo-db_course/week_5_aggregation_framework.aa35ebe6f2f0/homework_5_4\
+\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+mongoimport -d test -c zips --drop zips.json\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+\
+db.zips.findOne()\
+\{\
+	"_id" : "35004",\
+	"city" : "ACMAR",\
+	"loc" : [\
+		-86.51557,\
+		33.584132\
+	],\
+	"pop" : 6055,\
+	"state" : "AL"\
+\}\
+\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+db.zips.aggregate([\
+    \{$project: \
+     \{\
+	first_char: \{$substr : ["$city",0,1]\},\
+     \}	 \
+   \}\
+])\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f0\fs26 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+-----------------------------------\
+\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+db.zips.aggregate([\
+    \{$project: \
+     \{\
+	_id: "$_id",\
+	first_char: \{$substr : ["$city",0,1]\},\
+	pop: "$pop"\
+     \}	 \
+   \},\
+\pard\pardeftab720\sl340\ql\qnatural
+
+\fs28 \cf0 \cb2 \kerning1\expnd0\expndtw0 	\{$match: \{
+\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+first_char
+\fs28 \cf0 \cb2 \kerning1\expnd0\expndtw0 : \cf20 /^\\d.*$/\cf0 \}\},\
+	\{$group:\
+	\{\
+	
+\f5 \cb1 \kerning1\expnd1\expndtw8
+_id: 0,\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+	 population: \{$sum:"$pop"\},
+\f1 \cb2 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl340\ql\qnatural
+\cf0 	\}\
+	\}
+\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl300\ql\qnatural
+\cf3 \kerning1\expnd1\expndtw8
+])
+\f5\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f0\fs26 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+-----------------------------------\
+\
+Week 6 \
+Replication and Sharding\
+Replication- Introdcuce fault tolerance - asyncronously replicating data among multiple nodes\
+Sharding - Way we scale out/split collection among multiple environments\
+------\
+Replication:\
+Availibility - if primary node goes down can still use system\
+Fault tolerance - if something destructive happens, don't loose data\
+\
+Min number of nodes is 3 - in order for election of new primary if primary goes down\
+\
+Types of nodes in replica set\
+*Regular - can be primary of secondary\
+*Arbiter - Just there for election purposes - Can help elect new primary if even number of nodes - No data on it\
+*Delayed/Regular node P:0 - disaster recovery node - can participate in election, cannot become primary\
+*Hidden node P:0 - cannot become primary - can participate in elections - used for analytics\
+\
+nodes with Priority set to 0 cannot be set to primary\
+\
+Configurations:\
+Default: Writes and Reads go to primary - Stong consistency of reads and writes, wont read stale data\
+\
+If you configure reads to go to secondaries, you may read stale data\
+(this is done to achieve "read scaling" (eventual consistency)\
+\
+Cannot perform writes if primary goes down, until new primary elected\
+\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: CREATING A REPLICA SET\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Which command, when issued from the mongo shell, will allow you to read from a secondary?\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+A:\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+rs.slaveOk()\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+----------------\
+Implications of Replication:\
+*Seed Lists - Drivers need to know at least one member of the replica set\
+*Write Conceern - node acknowledge writes (w param), wait or not wait for primary node to commit to disk (j param), how long to wait to see that data made it to other members of replica set (w timeout)\
+*Read Preferences - read from Primaries or secondaries\
+*Errors can happen - unexpected, must be able to handle, check exceptions and keep track of what gets committed to database.\
+----------------\
+Failover and Rollback\
+Rollback:\
+If a primary goes down while writing, the secondaries might be a few seconds behind. After election of a new primary, when old primary comes back up as secondary, and sees writes that the others don't have, it will roll back those changes and write them to a file, which can be applied manually later. (can be prevented by waiting until majority of nodes have the data) - (set write concerns so majority of nodes have write) \
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: FAILOVER AND ROLLBACK\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+What happens if a node comes back up as a secondary after a period of being offline and the oplog has looped on the primary?\
+The entire dataset will be copied from the primary\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+---------------------\
+Connecting to replica set through nodejs driver:\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: CONNECTING TO A REPLICA SET FROM THE NODE.JS DRIVER\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+If you leave a replica set node out of the seedlist within the driver, what will happen?\
+The missing node will be discovered as long as you list at least one valid node.
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+\
+---------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: FAILOVER IN THE NODE.JS DRIVER\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+db.collection('foo').insert(\{x:1\}, callback);\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+What will happen if this insert happens during a primary election?
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+The insert will be buffered until the election completes, then the callback will be called after the operation is sent and a response is received\
+- The driver buffers the writes, and during failover, waits, and writes them to the new primary(rollback wont need to happen)
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+---------------------
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f0\b \cf0 \kerning1\expnd0\expndtw0 Write Concern:
+\fs26 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ql\qnatural\pardirnatural
+
+\f5\b0\fs36 \cf0 w
+\f3  Option\
+
+\fs32 The 
+\f5 w
+\f3  option provides the ability to disable write concern entirely as well as specify the write concern for {\field{\*\fldinst{HYPERLINK "http://docs.mongodb.org/manual/reference/glossary/#term-replica-set"}}{\fldrslt replica sets}}.\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f0\fs26 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ql\qnatural\pardirnatural
+
+\f5\fs36 \cf0 j
+\f3  Option\
+
+\fs32 The 
+\f5 j
+\f3  option confirms that the {\field{\*\fldinst{HYPERLINK "http://docs.mongodb.org/manual/reference/program/mongod/#bin.mongod"}}{\fldrslt 
+\f5 mongod}} instance has written the data to the 
+\b on-disk
+\b0  journal. This ensures that data is not lost if the {\field{\*\fldinst{HYPERLINK "http://docs.mongodb.org/manual/reference/program/mongod/#bin.mongod"}}{\fldrslt 
+\f5 mongod}} instance shuts down unexpectedly. Set to 
+\f5 true
+\f3  to enable.\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f0\fs26 \cf0 \
+w:1\
+w:2\
+w:3 \
+W:X - The write has been acknowledged by this many nodes\
+\
+w:j - Write to primaries journal before success response - can replay journal and bring back to point where write has been applied (has been written to disk)\
+\
+w:majority - has written to the majority of nodes\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: WRITE CONCERN\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+What happens if we specify a write concern larger than the number of nodes we currently have up?\
+The write waits forever.\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+---------------------\
+Read preference in the node driver\
+Primary\
+Primary Preferred\
+Secondary\
+Secondayr Preferred\
+Closest\
+\
+rs.status() gives you information on replica set\
+use admin\
+db.shutdownServer()\
+---------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: READ PREFERENCES\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+You can configure your applications via the drivers to read from secondary nodes within a replica set. What are the reasons that you might not want to do that? Check all that apply.\
+\
+*If your write traffic is significantly greater than your read traffic, you may overwhelm the secondary, which must process all the writes as well as the reads. Replication lag can result. \
+\
+*You may not read what you previously wrote to MongoDB. \
+\
+*If the secondary hardware has insufficient memory to keep the read working set in memory, directing reads to it will likely slow it down. \
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+---------------------\
+Network Errors:\
+Sometimes you will get an exception, but the write has completed\
+Can never be completely sure what happened\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: NETWORK ERRORS\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+What are the reasons why an application may receive an error back even if the write was successful. Check all that apply.\
+\
+\
+The network TCP network connection between the application and the server was reset between the time of the write and the time of the getLastError call.\
+\
+The MongoDB server terminates between the write and the getLastError call.\
+\
+The network fails between the time of the write and the time of the getLastError call\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+---------------------
+\f0\fs26 \kerning1\expnd0\expndtw0 \
+Sharding -\
+How we handle horizontal scaling\
+\
+Queries get distributed by mongoS router\
+\
+Shards are almost always replica sets\
+\
+Range based approach \
+Shard Key\
+\
+Map to different shards based on data ranges assigned to each shard (data from document) (Range - based)\
+\
+If query does not include shard id, it will query all the shards, and compile a response\
+\
+Inserts must have shard key\
+\
+Can shard on a DB level or Collection level\
+Collections that are not sharded are added to shard 0\
+\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+If the shard key is not include in a find operation and there are 3 shards, each one a replica set with 3 nodes, how many nodes will see the find operation?\
+A:\
+3\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+---------------------\
+Building a Sharded environment:\
+can use script in download
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl480\ql\qnatural
+\cf12 \kerning1\expnd1\expndtw8
+init_sharded_env.ae39ee9f8161\
+\
+Create environ with two shards each with three mongo replica set\
+Create port numbers \
+Create config servers - mongo servers that keep track of where shards are (in prod typically use three of them - can use one for dev)\
+1) Create directories\
+2) Create replica set\
+3) Conect to one server and initiate the set (config file)\
+4) Create directories for config servers\
+5) Start a mongoS,on a standard port - tell it where config servers are\
+6) Add shards and enable sharding on the test DB\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: BUILDING A SHARDED ENVIRONMENT\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+If you want to build a production system with two shards, each one a replica set with three nodes, how may mongod processes must you start?\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f0\fs26 \cf0 \kerning1\expnd0\expndtw0 A: 9\
+\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+---------------------\
+Implications of Sharding:\
+1. Every doc needs to include shard key\
+2. Shard key is immutable - cant change it\
+3. Need index that STARTS with the shard key (_id , class is ok)\
+4. Id cant be multikey index\
+5. Shard key has to be specified or multi\
+6. When you send query without shard key "scatter gather" queries all nodes (expensive) - need to think about what key would use on most queries\
+7. No unique keys unless it starts with the shard key (cannot enforce uniqueness on any other key, because it won be able to find it)\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: IMPLICATIONS OF SHARDING\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Suppose you wanted to shard the zip code collection after importing it. You want to shard on zip code. What index would be required to allow MongoDB to shard on zip code?\
+An index on zip or a non-multi-key index that starts with zip.\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+\
+---------------------\
+Sharding and Replication\
+*Almost always done together\
+*Shards themselves are replica sets\
+* MongoS is doing what drivers were doing before. When there is failover what the seed list and knows what nodes are part of it\
+* Write concerns will be passed right through\
+* Usually MongoS is replicated by itself\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: SHARDING + REPLICATION\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Suppose you want to run multiple mongos routers for redundancy. What level of the stack will assure that you can failover to a different mongos from within your application?\
+drivers
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+---------------------\
+Choosing a shard key:\
+1. Sufficient Cardinality - can add cardinality by using a second part to the key that adds carnality\
+2.Avoid hotspotting in writes - (monotonically increasing - will add stress to shard that has highest values)\
+3.Think about what would be naturally parallel\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+QUIZ: CHOOSING A SHARD KEY\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+You are building a facebook competitor called footbook that will be a mobile social network of feet. You have decided that your primary data structure for posts to the wall will look like this:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 \{'username':'toeguy',\
+     'posttime':ISODate("2012-12-02T23:12:23Z"),\
+     "randomthought": "I am looking at my feet right now",\
+     'visible_to':['friends','family', 'walkers']\}\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Thinking about the tradeoffs of shard key selection, select the true statements below.\
+*Choosing posttime as the shard key will cause hotspotting as time progresses.\
+*Choosing username as the shard key will distribute posts to the wall well across the shards.\
+*Choosing visible_to as a shard key is illegal.\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f0\fs26 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+-----------------------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+HOMEWORK: HOMEWORK 6.1\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Which of the following statements are true about MongoDB replication. Check all that apply:\
+Check: The minimum sensible number of voting nodes to a replica set is three.\
+Wrong:MongoDB replication is synchronous.\
+Wrong:By default, using the new MongoClient connection class, w=1 and j=1.\
+Check:The oplog utilizes a capped collection.\
+--------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+HOMEWORK: HOMEWORK 6.2\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Let's suppose you have a five member replica set and want to assure that writes are committed to the journal and are acknowledged by at least 3 nodes before you proceed forward. What would be the appropriate settings for w and j?\
+w="majority", j=1
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+----------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+HOMEWORK: HOMEWORK 6.3\
+Fail
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+\
+----------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+HOMEWORK: HOMEWORK 6.4\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+You have a sharded system with three shards and have sharded the collections "grades" in the "test" database across those shards. The output of sh.status() when connected to mongos looks like this:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 mongos> sh.status()\
+--- Sharding Status --- \
+  sharding version: \{ "_id" : 1, "version" : 3 \}\
+  shards:\
+	\{  "_id" : "s0",  "host" : "s0/localhost:37017,localhost:37018,localhost:37019" \}\
+	\{  "_id" : "s1",  "host" : "s1/localhost:47017,localhost:47018,localhost:47019" \}\
+	\{  "_id" : "s2",  "host" : "s2/localhost:57017,localhost:57018,localhost:57019" \}\
+  databases:\
+	\{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" \}\
+	\{  "_id" : "test",  "partitioned" : true,  "primary" : "s0" \}\
+		test.grades chunks:\
+				s1	4\
+				s0	4\
+				s2	4\
+			\{ "student_id" : \{ $minKey : 1 \} \} -->> \{ "student_id" : 0 \} on : s1 Timestamp(12000, 0) \
+			\{ "student_id" : 0 \} -->> \{ "student_id" : 2640 \} on : s0 Timestamp(11000, 1) \
+			\{ "student_id" : 2640 \} -->> \{ "student_id" : 91918 \} on : s1 Timestamp(10000, 1) \
+			\{ "student_id" : 91918 \} -->> \{ "student_id" : 176201 \} on : s0 Timestamp(4000, 2) \
+			\{ "student_id" : 176201 \} -->> \{ "student_id" : 256639 \} on : s2 Timestamp(12000, 1) \
+			\{ "student_id" : 256639 \} -->> \{ "student_id" : 344351 \} on : s2 Timestamp(6000, 2) \
+			\{ "student_id" : 344351 \} -->> \{ "student_id" : 424983 \} on : s0 Timestamp(7000, 2) \
+			\{ "student_id" : 424983 \} -->> \{ "student_id" : 509266 \} on : s1 Timestamp(8000, 2) \
+			\{ "student_id" : 509266 \} -->> \{ "student_id" : 596849 \} on : s1 Timestamp(9000, 2) \
+			\{ "student_id" : 596849 \} -->> \{ "student_id" : 772260 \} on : s0 Timestamp(10000, 2) \
+			\{ "student_id" : 772260 \} -->> \{ "student_id" : 945802 \} on : s2 Timestamp(11000, 2) \
+			\{ "student_id" : 945802 \} -->> \{ "student_id" : \{ $maxKey : 1 \} \} on : s2 Timestamp(11000, 3) \
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+If you ran the query
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 use test\
+db.grades.find(\{'student_id':530289\})\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Which shards would be involved in answering the query?\
+Answer:\
+s1\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+------------------------------\
+for this homework needed to set permissions to the new files in /data:\
+sudo chmod 777 /data\
+Then run the commands as follows:\
+\pard\pardeftab720\sl400\ql\qnatural
+
+\f1 \cf3 \cb13 \kerning1\expnd1\expndtw8
+mkdir -p /data/rs1 /data/rs2 /data/rs3\
+\
+mongod --replSet m101 --logpath "1.log" --dbpath /data/rs1 --port 27017 --smallfiles --oplogSize 64 --fork \
+mongod --replSet m101 --logpath "2.log" --dbpath /data/rs2 --port 27018 --smallfiles --oplogSize 64 --fork\
+mongod --replSet m101 --logpath "3.log" --dbpath /data/rs3 --port 27019 --smallfiles --oplogSize 64 --fork\
+\
+\pard\pardeftab720\sl400\ql\qnatural
+
+\f5 \cf0 \cb1 \kerning1\expnd1\expndtw8
+Then follow the rest of the directions.\
+\
+Remember this is how to validate:\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+cd ~/Desktop/mongo-db_course/week_6_application_engineering.9835f53911aa/homework_6_5/hw6-5/hw6-5/\
+\
+npm install\
+\
+node validate.js\
+\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+HOMEWORK: HOMEWORK 6.5\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+In this homework you will build a small replica set on your own computer. We will check that it works with 
+\f7\i \kerning1\expnd1\expndtw8
+validate.js
+\f6\i0 \kerning1\expnd1\expndtw8
+, which you should download from the Download Handout link. \
+\
+Create three directories for the three mongod processes. \
+\
+On 
+\f7 \kerning1\expnd1\expndtw8
+unix or mac
+\f6 \kerning1\expnd1\expndtw8
+, this could be done as follows:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 mkdir -p /data/rs1 /data/rs2 /data/rs3\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Now start three mongo instances as follows. Note that are three commands. The browser is probably wrapping them visually.
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 mongod --replSet m101 --logpath "1.log" --dbpath /data/rs1 --port 27017 --smallfiles --oplogSize 64 --fork \
+mongod --replSet m101 --logpath "2.log" --dbpath /data/rs2 --port 27018 --smallfiles --oplogSize 64 --fork\
+mongod --replSet m101 --logpath "3.log" --dbpath /data/rs3 --port 27019 --smallfiles --oplogSize 64 --fork\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f7\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Windows users: 
+\f6 \kerning1\expnd1\expndtw8
+Omit 
+\f1\fs28 \cf21 \cb13 \kerning1\expnd1\expndtw8
+-p
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+ from 
+\f1\fs28 \cf21 \cb13 \kerning1\expnd1\expndtw8
+mkdir
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+. Also omit 
+\f1\fs28 \cf21 \cb13 \kerning1\expnd1\expndtw8
+--fork
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+ and use
+\f1\fs28 \cf21 \cb13 \kerning1\expnd1\expndtw8
+start mongod
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+ with Windows compatible paths (i.e. back slashes "\\") for the 
+\f1\fs28 \cf21 \cb13 \kerning1\expnd1\expndtw8
+--dbpath
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+ argument (e.g; 
+\f1\fs28 \cf21 \cb13 \kerning1\expnd1\expndtw8
+C:\\data\\rs1
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+). \
+\
+Now connect to a mongo shell and make sure it comes up
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 mongo --port 27017\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Now you will create the replica set. Type the following commands into the mongo shell:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 config = \{ _id: "m101", members:[\{ _id : 0, host : "localhost:27017"\},\{ _id : 1, host : "localhost:27018"\},\{ _id : 2, host : "localhost:27019"\} ]\};\
+rs.initiate(config);\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+At this point, the replica set should be coming up. You can type
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 rs.status()\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+to see the state of replication. \
+\
+Now run validate.js to confirm that it works.
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 node validate.js\
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5 \cf0 \cb1 \kerning1\expnd1\expndtw8
+---------------\
+Video: Creating a Replica Set\
+\pard\pardeftab720\sl360\ql\qnatural
+{\field{\*\fldinst{HYPERLINK "https://university.mongodb.com/courses/10gen/M101JS/2014_October/courseware/Week_6_Application_Engineering/52b35d99e2d423678d3b9d44/"}}{\fldrslt \cf0 \kerning1\expnd1\expndtw8
+https://university.mongodb.com/courses/10gen/M101JS/2014_October/courseware/Week_6_Application_Engineering/52b35d99e2d423678d3b9d44/}}\
+\
+~/Desktop/mongo-db_course/week_6_application_engineering.9835f53911aa/creating_a_replica_set/create_replica_set.sh\
+sudo chmod 777 /data\
+cd ~/Desktop/mongo-db_course/week_6_application_engineering.9835f53911aa/creating_a_replica_set/\
+bash < create_replica_set.sh\
+\
+\
+Use sudo bash to set up the directories and the shell (mongod)\
+Path to homework:\
+~/Desktop/mongo-db_course/week_6_application_engineering.9835f53911aa/homework_6_5/hw6-5/hw6-5/\
+\
+-- fork (means you don't have to open in different shell)\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ql\qnatural\pardirnatural
+
+\fs32 \cf0 \kerning1\expnd0\expndtw0 db.shutdownServer()
+\fs28 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+\
+Try this for config:\
+\pard\pardeftab720\sl400\ql\qnatural
+
+\f1 \cf3 \cb13 \kerning1\expnd1\expndtw8
+config = \{ _id: "m101", members:[\{ _id : 0, host : "Bryce-Gintofts-MacBook-Pro.local:27017"\},\{ _id : 1, host : "Bryce-Gintofts-MacBook-Pro.local:27018"\},\{ _id : 2, host : "Bryce-Gintofts-MacBook-Pro.local:27019"\} ]\};rs.initiate(config);\
+\pard\pardeftab720\sl400\ql\qnatural
+
+\f5 \cf0 \cb1 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+Try config when only one server is running\
+\
+Try connection to all the servers\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+mongo --port 27017\
+mongo --port 27018\
+mongo --port 27019\
+\
+-----------------------------------\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f9\b\fs42 \cf3 \kerning1\expnd1\expndtw8
+Final
+\f1\b0\fs22 \kerning1\expnd1\expndtw8
+\
+\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f5\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+FINAL: QUESTION 1\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Please download the Enron email dataset {\field{\*\fldinst{HYPERLINK "https://s3.amazonaws.com/edu-downloads.10gen.com/enron/enron.zip"}}{\fldrslt \cf22 \kerning1\expnd1\expndtw8
+enron.zip}}, unzip it and then restore it using mongorestore. It should restore to a collection called "messages" in a database called "enron". Note that this is an abbreviated version of the full corpus. There should be 120,477 documents after restore. \
+\
+Inspect a few of the documents to get a basic understanding of the structure. {\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Enron"}}{\fldrslt \cf22 \kerning1\expnd1\expndtw8
+Enron}} was an American corporation that engaged in a widespread accounting fraud and subsequently failed. \
+\
+In this dataset, each document is an email message. Like all Email messages, there is one sender but there can be multiple recipients. \
+\
+Construct a query to calculate the number of messages sent by Andrew Fastow, CFO, to Jeff Skilling, the president. Andrew Fastow's email addess was andrew.fastow@enron.com. Jeff Skilling's email was jeff.skilling@enron.com. \
+\
+For reference, the number of email messages from Andrew Fastow to John Lavorato (john.lavorato@enron.com) was 1. \
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+----------\
+Answer Work for Q1:\
+cd ~/Desktop/mongo-db_course/final_exam_enron\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl480\ql\qnatural
+\cf9 \cb10 \kerning1\expnd0\expndtw0 mongorestore --collection 
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+messages
+\f5\fs28 \cf9 \cb10 \kerning1\expnd0\expndtw0  --db enron dump/enron/messages.bson\
+\pard\pardeftab720\sl300\ql\qnatural
+\cf0 \cb1 \kerning1\expnd1\expndtw8
+\
+headers.From\
+headers.To - array\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+db.messages.find( \{ 'headers.From' : '
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+andrew.fastow@enron.com'
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+ \} )
+\f5\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+db.messages.aggregate([\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+	
+\f1 \cb2 \kerning1\expnd0\expndtw0 \{ \
+	$unwind:"$headers.To" \
+	\},\
+	
+\f5 \cb1 \kerning1\expnd1\expndtw8
+\{$match:\
+\pard\pardeftab720\sl340\ql\qnatural
+
+\f1 \cf0 \cb2 \kerning1\expnd0\expndtw0 	\{$and:[\{"
+\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+headers.From
+\f5\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+":"
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+andrew.fastow@enron.com
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+"
+\f1 \cb2 \kerning1\expnd0\expndtw0 \},\{"
+\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+headers.To
+\f5\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+":"
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+jeff.skilling@enron.com
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+"
+\f1 \cb2 \kerning1\expnd0\expndtw0 \}]\}
+\f5 \cb1 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+    \},\
+	\{
+\f4\b \cf9 \kerning1\expnd0\expndtw0 $group
+\f5\b0 \cf23 :\cf9  \{\
+\pard\pardeftab720\sl480\ql\qnatural
+\cf9         
+\f4\b _id
+\f5\b0 \cf23 :\cf9  
+\f4\b \cf24 null
+\f5\b0 \cf9 ,\
+        
+\f4\b count
+\f5\b0 \cf23 :\cf9  \{ 
+\f4\b $sum
+\f5\b0 \cf23 :\cf9  \cf25 1\cf9  \}\
+     \}\}\cf0 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl360\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+])\
+Answer: 3\
+-------------\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+FINAL: QUESTION 2\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Please use the Enron dataset you imported for the previous problem. For this question you will use the aggregation framework to figure out pairs of people that tend to communicate a lot. To do this, you will need to unwind the To list for each message. \
+\
+This problem is a little tricky because a recipient may appear more than once in the To list for a message. You will need to fix that in a stage of the aggregation before doing your grouping and counting of (sender, recipient) pairs. \
+\pard\pardeftab720\sl360\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+Answer work to Q2:\
+\
+\pard\pardeftab720\sl440\ql\qnatural
+
+\fs26 \cf26 \cb27 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl340\ql\qnatural
+
+\f1\fs28 \cf0 \cb2 	\{$group: \{_id: "$_id",from: "$from", to: \{$addToSet: "$to"\}\}\},\
+\pard\pardeftab720\sl440\ql\qnatural
+
+\f5\fs26 \cf3 \cb27 db.\cf28 messages\cf3 .\cf28 aggregate\cf29 ([\cf3 \
+	\cf29 \{\cf3 $project\cf26 :\cf3  \cf29 \{\cf3 \
+		from\cf26 :\cf3  \cf30 "$headers.From"\cf26 ,\cf3 \
+		to\cf26 :\cf3  \cf30 "$headers.To"\cf3 \
+	\cf29 \}\}\cf26 ,\cf3 \
+	\cf29 \{\cf3 $unwind\cf26 :\cf3  \cf30 "$to"\cf29 \}\cf26 ,\
+\pard\pardeftab720\sl340\ql\qnatural
+
+\f1\fs28 \cf0 \cb2 	\{$group: \{_id: "$_id",to: \{$addToSet: "$to"\},from: \{$first: "$from"\}\}\},
+\f5\fs26 \cf3 \cb27 \
+\pard\pardeftab720\sl440\ql\qnatural
+\cf3 	\cf29 \{\cf3 $project\cf26 :\cf3  \cf29 \{\cf3 \
+		pair\cf26 :\cf3  \cf29 \{\cf3 \
+			from\cf26 :\cf3  \cf30 "$from"\cf26 ,\cf3 \
+			to\cf26 :\cf3  \cf30 "$to"\cf3 \
+		\cf29 \}\cf26 ,\cf3 \
+		count\cf26 :\cf3  \cf29 \{\cf3 $add\cf26 :\cf3  \cf29 [\cf31 1\cf29 ]\}\cf3 \
+	\cf29 \}\}\cf26 ,\cf3 \
+	\cf29 \{\cf3 $group\cf26 :\cf3  \cf29 \{\cf3 \
+		_id\cf26 :\cf3  \cf30 "$pair"\cf26 ,\cf3 \
+		count\cf26 :\cf3  \cf29 \{\cf3 $sum\cf26 :\cf3  \cf31 1\cf29 \}\cf3 \
+	\cf29 \}\}\cf26 ,\cf3 \
+	\cf29 \{\cf3 $sort\cf26 :\cf3  \cf29 \{\cf3 \
+		count\cf26 :\cf3  \cf26 -\cf31 1\cf3 \
+	\cf29 \}\}\cf26 ,\cf3 \
+	\cf29 \{\cf3 $limit\cf26 :\cf3  \cf31 5\cf29 \}\cf3 \
+\cf29 ])\
+\
+Answer:\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+soblander@carrfut.com to soblander@carrfut.com
+\f5\fs26 \cf29 \cb27 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl440\ql\qnatural
+\cf29 -- Used to verify above answer:\
+\cf3 db.\cf28 messages\cf3 .\cf28 aggregate\cf29 ([\cf3 \
+	\cf29 \{\cf3 $group\cf26 :\cf3  \cf29 \{\cf3 \
+		from\cf26 :\cf3  \cf30 "
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+susan.mara@enron.com
+\f5\fs26 \cf30 \cb27 \kerning1\expnd0\expndtw0 "\cf26 ,\cf3 \
+		to\cf26 :\cf3  \cf30 "$headers.To"\cf3 \
+	\cf29 \}\}\cf3 \
+\cf29 ])\cf3 \
+\pard\pardeftab720\sl300\ql\qnatural
+
+\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+db.messages.find(\cf9 \cb10 \kerning1\expnd0\expndtw0 \{ 'headers.From'\cf23 :\cf9  \cf32 '
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+susan.mara@enron.com
+\f5\fs28 \cf32 \cb10 \kerning1\expnd0\expndtw0 '\cf9  \})\cf0 \cb1 \kerning1\expnd1\expndtw8
+\
+------------------------------\
+Final Q3:\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+FINAL: QUESTION 3\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+In this problem you will update a document in the Enron dataset to illustrate your mastery of updating documents from the shell. \
+\
+Please add the email address "mrpotatohead@mongodb.com" to the list of addresses in the "headers.To" array for the document with "headers.Message-ID" of "<8147308.1075851042335.JavaMail.evans@thyme>" \
+\
+After you have completed that task, please download final3.zip from the Download Handout link and run final3-validate.js to get the validation code and put it in the box below without any extra spaces. The validation script assumes that it is connecting to a simple mongo instance on the standard port on localhost.\
+\pard\pardeftab720\sl440\ql\qnatural
+
+\f5\fs26 \cf3 \cb27 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl300\ql\qnatural
+
+\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+db.messages.find(\cf9 \cb10 \kerning1\expnd0\expndtw0 \{ '
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+headers.Message-ID
+\f5\fs28 \cf9 \cb10 \kerning1\expnd0\expndtw0 '\cf23 :\cf32 '
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+<8147308.1075851042335.JavaMail.evans@thyme>
+\f5\fs28 \cf32 \cb10 \kerning1\expnd0\expndtw0 '\cf9  \})\
+\
+Answer is to add the item to the database:\
+\pard\pardeftab720\sl480\ql\qnatural
+\cf9 db.messages.update(\
+   \{ '
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+headers.Message-ID'
+\f5\fs28 \cf23 \cb10 \kerning1\expnd0\expndtw0 :\cf9  \cf32 '
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+<8147308.1075851042335.JavaMail.evans@thyme>
+\f5\fs28 \cf32 \cb10 \kerning1\expnd0\expndtw0 '\cf9  \},\
+   \{ $addToSet\cf23 :\cf9  \{ 'headers.To'\cf23 :\cf9  \cf32 '
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+mrpotatohead@mongodb.com'
+\f5\fs28 \cf9 \cb10 \kerning1\expnd0\expndtw0   \} \}\
+)\
+\pard\pardeftab720\sl300\ql\qnatural
+\cf0 \cb1 \kerning1\expnd1\expndtw8
+cd ~/Desktop/mongo-db_course/final_exam.a28bad67536c/question_3/final3/Final3/\
+npm install\
+node final3-validate.js\
+---------------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+FINAL: QUESTION 5\
+\pard\pardeftab720\sl480\sa440\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Suppose your have a collection 
+\f7\i \kerning1\expnd1\expndtw8
+fubar
+\f6\i0 \kerning1\expnd1\expndtw8
+ with the following indexes created:\
+\pard\pardeftab720\sl400\ql\qnatural
+
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+[\
+	\{\
+		"v" : 1,\
+		"key" : \{\
+			"_id" : 1\
+		\},\
+		"ns" : "test.fubar",\
+		"name" : "_id_"\
+	\},\
+	\{\
+		"v" : 1,\
+		"key" : \{\
+			"a" : 1,\
+			"b" : 1\
+		\},\
+		"ns" : "test.fubar",\
+		"name" : "a_1_b_1"\
+	\},\
+	\{\
+		"v" : 1,\
+		"key" : \{\
+			"a" : 1,\
+			"c" : 1\
+		\},\
+		"ns" : "test.fubar",\
+		"name" : "a_1_c_1"\
+	\},\
+	\{\
+		"v" : 1,\
+		"key" : \{\
+			"c" : 1\
+		\},\
+		"ns" : "test.fubar",\
+		"name" : "c_1"\
+	\},\
+	\{\
+		"v" : 1,\
+		"key" : \{\
+			"a" : 1,\
+			"b" : 1,\
+			"c" : -1\
+		\},\
+		"ns" : "test.fubar",\
+		"name" : "a_1_b_1_c_-1"\
+	\}\
+]\
+\pard\pardeftab720\sl480\sa440\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Now suppose you want to run the following query against the collection.\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+db.fubar.find(\{'a':\{'$lt':10000\}, 'b':\{'$gt': 5000\}\}, \{'a':1, 'c':1\}).sort(\{'c':-1\})\
+\pard\pardeftab720\sl480\sa440\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Which of the following indexes could be used by MongoDB to assist in answering the query? Check all that apply.\
+\pard\pardeftab720\sl480\ql\qnatural
+\cf12 \kerning1\expnd1\expndtw8
+Wrong: _id_\
+Correct: a_1_b_1\
+Correct: a_1_c_1\
+Correct: c_1\
+Wrong:  a_1_b_1_c_-1\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+------------------
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+FINAL: QUESTION 6\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Suppose you have a collection of students of the following form:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 \{\
+	"_id" : ObjectId("50c598f582094fb5f92efb96"),\
+	"first_name" : "John",\
+	"last_name" : "Doe",\
+	"date_of_admission" : ISODate("2010-02-21T05:00:00Z"),\
+	"residence_hall" : "Fairweather",\
+	"has_car" : true,\
+	"student_id" : "2348023902",\
+	"current_classes" : [\
+		"His343",\
+		"Math234",\
+		"Phy123",\
+		"Art232"\
+	]\
+\}\
+\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Now suppose that basic inserts into the collection, which only include the last name, first name and student_id, are too slow (we can't do enough of them per second from our program). What could potentially improve the speed of inserts. Check all that apply.\
+\
+\
+inCorrect:  Add an index on last_name, first_name if one does not already exist.\
+Correct: Remove all indexes from the collection, leaving only the index on _id in place\
+InCorrect: Provide a hint to MongoDB that it should not use an index for the inserts\
+Correct: Set w=0, j=0 on writes\
+InCorrect: Build a replica set and insert data into the secondary nodes to free up the primary nodes.\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+---------------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+FINAL: QUESTION 8\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Suppose you have a three node replica set. Node 1 is the primary. Node 2 is a secondary, Node 3 is a secondary running with a delay of two hours. All writes to the database are issued with w=majority and j=1 (by which we mean that the getLastError call has those values set). \
+\
+A write operation (could be insert or update) is initiated from your application using the Node.js driver at time=0. At time=5 seconds, the primary, Node 1, goes down for an hour and node 2 is elected primary. Note that your write operation has not yet returned at the time of the failure. Note also that although you have not received a response from the write, it has been processed and written by Node 1 before the failure. Node 3, since it has a slave delay option set, is lagging. \
+\
+\
+Will there be a rollback of data on Node 1 when Node 1 comes back up? Choose the best answer.\
+\
+Yes, always\
+No, never\
+Maybe, it depends on whether Node 3 has processed the write\
+XX Correct: Maybe, it depends on whether Node 2 has processed the write\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+-----------------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+FINAL: QUESTION 9\
+\pard\pardeftab720\sl480\sa440\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+Imagine an electronic medical record database designed to hold the medical records of every individual in the United States. Because each person has more than 16MB of medical history and records, it's not feasible to have a single document for every patient. Instead, there is a 
+\f7\i \kerning1\expnd1\expndtw8
+patient
+\f6\i0 \kerning1\expnd1\expndtw8
+collection that contains basic information on each person and maps the person to a patient_id, and a
+\f7\i \kerning1\expnd1\expndtw8
+record
+\f6\i0 \kerning1\expnd1\expndtw8
+ collection that contains one document for each test or procedure. One patient may have dozens or even hundreds of documents in the 
+\f7\i \kerning1\expnd1\expndtw8
+record
+\f6\i0 \kerning1\expnd1\expndtw8
+ collection.\
+We need to decide on a shard key to shard the 
+\f7\i \kerning1\expnd1\expndtw8
+record
+\f6\i0 \kerning1\expnd1\expndtw8
+ collection. What's the best shard key for the
+\f7\i \kerning1\expnd1\expndtw8
+record
+\f6\i0 \kerning1\expnd1\expndtw8
+ collection, provided that we are willing to run inefficient scatter-gather operations to do infrequent research and run studies on various diseases and cohorts? That is, think mostly about the operational aspects of such a system. And by operational, we mean, think about what the most common operations that this systems needs to perform day in and day out.\
+\pard\pardeftab720\sl480\ql\qnatural
+\cf12 \kerning1\expnd1\expndtw8
+XXCorrect: patient_id\
+_id\
+Primary care physician (your principal doctor that handles everyday problems)\
+Date and time when medical record was created\
+Patient first name\
+Patient last name
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl300\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+------------------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+FINAL: QUESTION 10\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f7\b\fs32 \cf12 \kerning1\expnd1\expndtw8
+Understanding the output of explain
+\f6\b0 \kerning1\expnd1\expndtw8
+ We perform the following query on the enron dataset:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 db.messages.find(\{'headers.Date':\{'$gt': new Date(2001,3,1)\}\},\{'headers.From':1, _id:0\}).sort(\{'headers.From':1\}).explain()\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+and get the following explain output.
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 \{\
+	"cursor" : "BtreeCursor headers.From_1",\
+	"isMultiKey" : false,\
+	"n" : 83057,\
+	"nscannedObjects" : 120477,\
+	"nscanned" : 120477,\
+	"nscannedObjectsAllPlans" : 120581,\
+	"nscannedAllPlans" : 120581,\
+	"scanAndOrder" : false,\
+	"indexOnly" : false,\
+	"nYields" : 0,\
+	"nChunkSkips" : 0,\
+	"millis" : 250,\
+	"indexBounds" : \{\
+		"headers.From" : [\
+			[\
+				\{\
+					"$minElement" : 1\
+				\},\
+				\{\
+					"$maxElement" : 1\
+				\}\
+			]\
+		]\
+	\},\
+	"server" : "Andrews-iMac.local:27017"\
+\}\
+\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Check below all the statements that are true about the way MongoDB handled this query.\
+\
+\
+The query did not utilize an index to figure out which documents match the find criteria.\
+Correct: The query used an index for the sorting phase.\
+The query returned 120,477 documents\
+Correct: The query performed a full collection scan\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+--------------------------------------------------\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+FINAL: QUESTION 4\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f7\b\fs32 \cf12 \kerning1\expnd1\expndtw8
+Enhancing the Blog to support viewers liking certain comments
+\f6\b0 \kerning1\expnd1\expndtw8
+\
+In this problem, you will be enhancing the blog project to support users liking certain comments and the like counts showing up the in the permalink page. \
+\
+Start by downloading Final4.zip and posts.json from the Download Handout link and loading up the blog dataset posts.json. The user interface has already been implemented for you. It's not fancy. The /post URL shows the like counts next to each comment and displays a Like button that you can click on. That Like button POSTS to the /like URL on the blog, makes the necessary changes to the database state (you are implementing this), and then redirects the browser back to the permalink page. \
+\
+This full round trip and redisplay of the entire web page is not how you would implement liking in a modern web app, but it makes it easier for us to reason about, so we will go with it. \
+\
+Your job is to search the code for the string "XXX work here" and make any necessary changes. You can choose whatever schema you want, but you should note that the entry_template makes some assumptions about the how the like value will be encoded and if you go with a different convention than it assumes, you will need to make some adjustments. \
+\
+The validation script does not look at the database. It looks at the blog. \
+\
+The validation script, final4-validate.js, will fetch your blog, go to the first post's permalink page and attempt to increment the vote count. You run it as follows:
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl400\ql\qnatural
+\cf3 node final4-validate.js\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+Remember that the blog needs to be running as well as Mongo. The validation script takes some options if you want to run outside of localhost. \
+\
+After you have gotten it working, enter the validation string below.\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+cd ~/Desktop/mongo-db_course/final_exam.a28bad67536c/question_4
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+\
+mongoimport -d blog -c posts < posts.json\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+db.posts.findOne()\
+cd ~/Desktop/mongo-db_course/final_exam.a28bad67536c/question_4/final4/Final4/blog\
+npm install\
+node app.js\
+-- should see message:\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+Express server listening on port 3000\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl440\ql\qnatural
+\cf12 \kerning1\expnd1\expndtw8
+http://localhost:8082/\
+\
+---\
+comments.email\
+comments.author\
+comments.likes\
+- need to add property "likes" if doesn't exist, otherwise increment it\
+\pard\pardeftab720\sl440\ql\qnatural
+
+\f7\b \cf12 \kerning1\expnd1\expndtw8
+answer:
+\f6\b0 \kerning1\expnd1\expndtw8
+\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f5\fs28 \cf12 \kerning1\expnd1\expndtw8
+db.posts.find(\{'permalink': 'cxzdzjkztkqraoqlgcru'\}).pretty()\cf0 \kerning1\expnd1\expndtw8
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\tx8960\tx9520\tx10080\tx10640\tx11200\tx11760\tx12320\tx12880\tx13440\tx14000\tx14560\tx15120\tx15680\tx16240\tx16800\tx17360\tx17920\tx18480\tx19040\tx19600\tx20160\tx20720\tx21280\tx21840\tx22400\tx22960\tx23520\tx24080\tx24640\tx25200\tx25760\tx26320\tx26880\tx27440\tx28000\tx28560\tx29120\tx29680\tx30240\tx30800\tx31360\tx31920\tx32480\tx33040\tx33600\tx34160\tx34720\tx35280\tx35840\tx36400\tx36960\tx37520\tx38080\tx38640\tx39200\tx39760\tx40320\tx40880\tx41440\tx42000\tx42560\tx43120\tx43680\tx44240\tx44800\tx45360\tx45920\tx46480\tx47040\tx47600\tx48160\tx48720\tx49280\tx49840\tx50400\tx50960\tx51520\tx52080\tx52640\tx53200\tx53760\tx54320\tx54880\tx55440\tx56000\pardeftab720\ql\qnatural\pardirnatural
+
+\f1\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+        \cf16 var\cf0  selector = \{\};\
+        selector[\cf17 'comments.'\cf0  + comment_ordinal + \cf17 '.num_likes'\cf0 ] = \cf18 1\cf0 ;\
+        \
+        \cf33 //$set: \{ 'comments.0.author' : 'Frank' \}\cf0 \
+        \cf33 //$inc: \{ 'comments.0.author' : 1 \}\cf0 \
+        \cf33 //$inc: \{ selector \}\cf0 \
+        \
+        posts.findAndModify(\
+          \{\cf17 'permalink'\cf0 : permalink\}, \cf33 // query\cf0 \
+          [],  \cf33 // sort order\cf0 \
+          \{$inc: selector\}, \cf33 // replacement, replaces only the selector field \cf0 \
+          \{\}, \cf33 // options\cf0 \
+          \cf16 function\cf0 (err, object) \{\
+              \cf16 if\cf0  (err)\{\
+                  callback(Error(\cf17 "incrementLikes Error"\cf0 ), \cf16 null\cf0 ); \
+              \}\cf16 else\cf0 \{\
+                console.dir(object);\
+                callback(\cf16 null\cf0 , object);\
+              \}\
+          \}\
+        );\
+\
+Validation:\
+\
+cd ~/Desktop/mongo-db_course/final_exam.a28bad67536c/question_4/final4/Final4/validate/\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\tx8960\tx9520\tx10080\tx10640\tx11200\tx11760\tx12320\tx12880\tx13440\tx14000\tx14560\tx15120\tx15680\tx16240\tx16800\tx17360\tx17920\tx18480\tx19040\tx19600\tx20160\tx20720\tx21280\tx21840\tx22400\tx22960\tx23520\tx24080\tx24640\tx25200\tx25760\tx26320\tx26880\tx27440\tx28000\tx28560\tx29120\tx29680\tx30240\tx30800\tx31360\tx31920\tx32480\tx33040\tx33600\tx34160\tx34720\tx35280\tx35840\tx36400\tx36960\tx37520\tx38080\tx38640\tx39200\tx39760\tx40320\tx40880\tx41440\tx42000\tx42560\tx43120\tx43680\tx44240\tx44800\tx45360\tx45920\tx46480\tx47040\tx47600\tx48160\tx48720\tx49280\tx49840\tx50400\tx50960\tx51520\tx52080\tx52640\tx53200\tx53760\tx54320\tx54880\tx55440\tx56000\pardeftab720\ql\qnatural\pardirnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\CocoaLigature1 node final4-validate.js\
+\pard\pardeftab720\sl300\ql\qnatural
+\cf0 \kerning1\expnd1\expndtw8
+--------------------------------------------------\
+\
+\pard\pardeftab720\sl600\sa300\ql\qnatural
+
+\f0\fs48 \cf12 \kerning1\expnd1\expndtw8
+FINAL: QUESTION 7\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \kerning1\expnd1\expndtw8
+You have been tasked to cleanup a photosharing database. The database consists of two collections, albums, and images. Every image is supposed to be in an album, but there are orphan images that appear in no album. Here are some example documents (not from the collections you will be downloading). \
+\
+\pard\pardeftab720\sl400\ql\qnatural
+
+\f1\fs28 \cf3 \cb13 \kerning1\expnd1\expndtw8
+> db.albums.findOne()\
+\{\
+	"_id" : 67\
+	"images" : [\
+		4745,\
+		7651,\
+		15247,\
+		17517,\
+		17853,\
+		20529,\
+		22640,\
+		27299,\
+		27997,\
+		32930,\
+		35591,\
+		48969,\
+		52901,\
+		57320,\
+		96342,\
+		99705\
+	]\
+\}\
+\
+> db.images.findOne()\
+\{ "_id" : 99705, "height" : 480, "width" : 640, "tags" : [ "dogs", "kittens", "work" ] \}\
+\
+\pard\pardeftab720\sl480\ql\qnatural
+
+\f6\fs32 \cf12 \cb1 \kerning1\expnd1\expndtw8
+From the above, you can conclude that the image with _id = 99705 is in album 67. It is not an orphan. \
+\
+Your task is to write a program to remove every image from the images collection that appears in no album. Or put another way, if an image does not appear in at least one album, it's an orphan and should be removed from the images collection. \
+\
+Download and unzip {\field{\*\fldinst{HYPERLINK "https://university.mongodb.com/static/10gen_2014_M101JS_October/handouts/final7.55e3678c7664.zip"}}{\fldrslt \cf22 \kerning1\expnd1\expndtw8
+Final7.zip}} and use mongoimport to import the collections in albums.json and images.json. \
+\
+When you are done removing the orphan images from the collection, there should be 89,737 documents in the images collection. To prove you did it correctly, what are the total number of images with the tag 'kittens" after the removal of orphans? As as a sanity check, there are 49,932 images that are tagged 'kittens' before you remove the images. \
+Hint: you might consider creating an index or two or your program will take a long time to run. \
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+\
+\
+~/Desktop/mongo-db_course/final_exam.a28bad67536c/question_7/final7/final7/images.json\
+\
+\
+\pard\pardeftab720\sl300\ql\qnatural
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+mongoimport -d photosharing -c albums < albums.json
+\f5\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+\
+
+\f1\fs22 \cf3 \cb13 \kerning1\expnd1\expndtw8
+mongoimport -d photosharing -c images < images.json
+\f5\fs28 \cf0 \cb1 \kerning1\expnd1\expndtw8
+\
+\
+total images with tag "kittens":\
+db.images.find(\{'_id':68\}).pretty()\
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 \kerning1\expnd0\expndtw0 db.images.ensureIndex(\{class:1,student_name:1\});
+\f5\fs28 \cf0 \kerning1\expnd1\expndtw8
+\
+
+\f7\fs30 \cf3 \kerning1\expnd0\expndtw0 db.images.getIndexes() \
+\pard\pardeftab720\ql\qnatural
+
+\f3\fs24 \cf3 \
+\pard\pardeftab720\ql\qnatural
+
+\f7\fs30 \cf3 Find Indexes:
+\f3\fs24 \
+
+\f7\fs30 Db.system.indexes.find() \'96 finds all the indexes in a db
+\f3\fs24 \
+
+\f7\fs30 Db.students.getIndexes() \'96 finds all the indexes in a collection
+\f3\fs24 \
+
+\f7\fs30 Db.students.dropIndex(\{\'91student_id\'92:1\}) \'96remove index\
+\
+\pard\pardeftab720\sl440\ql\qnatural
+
+\f5\fs26 \cf3 \cb27 db.\cf28 images\cf3 .\cf28 aggregate\cf29 ([\cf3 \
+	\cf29 \{\cf3 $unwind\cf26 :\cf3  \cf30 "$tags"\cf29 \},\
+\pard\pardeftab720\sl320\ql\qnatural
+
+\f1\fs24 \cf3 \cb1 	\{ $group \cf34 :\cf3  \{ _id \cf34 :\cf3  \cf35 "$tags"\cf3 , number \cf34 :\cf3  \{ $sum \cf34 :\cf3  \cf36 1\cf3  \} \} \},\
+    \{ $sort \cf34 :\cf3  \{ number \cf34 :\cf3  \cf34 -\cf36 1\cf3  \} \}, \
+    \{ $limit \cf34 :\cf3  \cf36 10\cf3  \}
+\f5\fs26 \cb27 \
+\pard\pardeftab720\sl440\ql\qnatural
+\cf29 ])\
+\pard\pardeftab720\sl320\ql\qnatural
+
+\f1\fs24 \cf3 \cb1 \{ $group \cf34 :\cf3  \{ _id \cf34 :\cf3  \cf35 "$tags"\cf3 , number \cf34 :\cf3  \{ $sum \cf34 :\cf3  \cf36 1\cf3  \} \} \},\
+    \{ $sort \cf34 :\cf3  \{ number \cf34 :\cf3  \cf34 -\cf36 1\cf3  \} \}, \
+    \{ $limit \cf34 :\cf3  \cf36 10\cf3  \}\
+\
+\
+\
+\
+\
+\
+\
+}
